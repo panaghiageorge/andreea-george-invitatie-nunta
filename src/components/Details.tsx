@@ -133,7 +133,6 @@ export function Details() {
                                                     </div>
 
                                                     <div className="flex-grow-1">
-                                                        <div className="lux-number small">{pad2(idx + 1)}</div>
                                                         <div className="fw-semibold mt-1">{n.title}</div>
                                                     </div>
                                                 </div>
