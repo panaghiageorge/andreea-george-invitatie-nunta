@@ -29,7 +29,7 @@ export function useActiveSection(sectionIds: string[]) {
 
         els.forEach((el) => obs.observe(el));
         return () => obs.disconnect();
-    }, [sectionIds.join("|")]);
+    }, [sectionIds]);
 
     return active;
 }

@@ -2,8 +2,14 @@ import { CalendarCheck2, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { content } from "../content";
 
+function isValidRsvpUrl(url: string) {
+    const normalized = url.trim();
+    if (!normalized || normalized.includes("PASTE_YOUR_GOOGLE_FORM")) return false;
+    return /^https?:\/\//i.test(normalized);
+}
+
 export function RSVP() {
-    const disabled = content.rsvpUrl.includes("PASTE_YOUR_GOOGLE_FORM");
+    const disabled = !isValidRsvpUrl(content.rsvpUrl);
 
     return (
         <div className="d-flex justify-content-center">

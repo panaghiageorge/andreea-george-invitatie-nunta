@@ -58,7 +58,7 @@ export const content = {
             coords: { lat: 44.4589923, lng: 26.1073530 },
         },
     ],
-    rsvpUrl: "https://forms.gle/PASTE_YOUR_GOOGLE_FORM",
+    rsvpUrl: "",
     contacts: [
         { name: "George", phone: "+40720106876" },
         { name: "Andreea", phone: "+40768691719" },

@@ -20,6 +20,13 @@ function formatTel(phone: string) {
     return phone;
 }
 
+function telHref(phone: string) {
+    const digits = phone.replace(/[^\d+]/g, "");
+    if (digits.startsWith("+")) return `tel:${digits}`;
+    if (digits.startsWith("40")) return `tel:+${digits}`;
+    return `tel:${digits}`;
+}
+
 
 function waLink(phone: string) {
     const digits = phone.replace(/[^\d]/g, "");
@@ -73,7 +80,7 @@ export function Details() {
 
                                             <div className="d-flex flex-column gap-2 mt-3">
                                                 <a
-                                                    href={`tel:${formatTel(c.phone)}`}
+                                                    href={telHref(c.phone)}
                                                     className="text-decoration-none d-flex align-items-center gap-2"
                                                     style={{ color: "var(--lux-text)" }}
                                                 >

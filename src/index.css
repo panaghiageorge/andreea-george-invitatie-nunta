@@ -265,7 +265,7 @@ section {
     font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
     font-weight: 600;
     letter-spacing: 6px;
-    color: rgba(200, 170, 106, 0.13);
+    color: rgba(200, 170, 106, 0.10);
     font-size: clamp(5rem, 18vw, 12rem);
     line-height: 1;
     transform: rotate(8deg);
@@ -280,7 +280,7 @@ section {
     font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
     font-weight: 600;
     letter-spacing: 6px;
-    color: rgba(200, 170, 106, 0.08);
+    color: rgba(200, 170, 106, 0.06);
     font-size: clamp(4rem, 14vw, 9rem);
     line-height: 1;
     transform: rotate(-10deg);
@@ -295,14 +295,15 @@ section {
 
 .lux-watermark {
     position: absolute;
-    top: 14px;
+    top: 12px;
     right: 14px;
     font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
-    font-size: 46px;
+    font-size: 52px;
     line-height: 1;
     letter-spacing: 1px;
-    color: rgba(200, 170, 106, 0.14);
+    color: rgba(200, 170, 106, 0.10);
+    transform: rotate(-4deg);
     pointer-events: none;
     user-select: none;
 }
@@ -345,23 +346,6 @@ section {
 }
 
 
-/* Countdown responsive layout */
-.lux-countdown-grid {
-    display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-@media (min-width: 768px) {
-    .lux-countdown-grid {
-        display: flex;
-        gap: 0;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-}
-
 /* Mobile nav drawer */
 .lux-drawer {
     border-top: 1px solid rgba(200, 170, 106, 0.22);
@@ -381,10 +365,6 @@ section {
 .lux-drawer-link + .lux-drawer-link {
     border-top: 1px solid rgba(200, 170, 106, 0.18);
 }
-
-.lux-monogram { color: rgba(200, 170, 106, 0.10); }
-.lux-monogram-2 { color: rgba(200, 170, 106, 0.06); }
-
 
 /* Countdown responsive layout (mobile grid, desktop row) */
 .lux-countdown-grid {
@@ -439,15 +419,6 @@ section {
         background: rgba(200, 170, 106, 0.7);
         box-shadow: 0 0 0 6px rgba(200, 170, 106, 0.12);
     }
-}
-
-/* Softer watermark (less intrusive) */
-.lux-watermark {
-    top: 12px;
-    right: 14px;
-    font-size: 52px;
-    color: rgba(200, 170, 106, 0.10); /* softer */
-    transform: rotate(-4deg);
 }
 
 /* Compact contact strip cards */

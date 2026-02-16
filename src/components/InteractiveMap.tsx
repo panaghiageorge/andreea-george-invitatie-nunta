@@ -9,6 +9,32 @@ function buildAppleMapsLink(address: string, city: string) {
 }
 
 type Coords = { lat: number; lng: number };
+type LeafletMap = {
+    invalidateSize: () => void;
+    fitBounds: (bounds: unknown, options?: { padding?: [number, number] }) => void;
+    setView: (latLng: unknown, zoom: number) => void;
+    off: () => void;
+    remove: () => void;
+};
+type LeafletMarker = {
+    bindPopup: (html: string) => LeafletMarker;
+    addTo: (map: LeafletMap) => LeafletMarker;
+    setZIndexOffset?: (offset: number) => void;
+    on?: (event: string, cb: () => void) => void;
+    getElement?: () => HTMLElement | null;
+    getLatLng?: () => unknown;
+};
+type LeafletBounds = {
+    isValid?: () => boolean;
+    pad?: (value: number) => LeafletBounds;
+};
+type LeafletLike = {
+    map: (container: HTMLElement, options: Record<string, unknown>) => LeafletMap;
+    tileLayer: (url: string, options: Record<string, unknown>) => { addTo: (map: LeafletMap) => void };
+    divIcon: (options: Record<string, unknown>) => unknown;
+    marker: (coords: [number, number], options: Record<string, unknown>) => LeafletMarker;
+    featureGroup: (markers: LeafletMarker[]) => { getBounds: () => LeafletBounds };
+};
 
 function wazeLinkByCoords(coords?: Coords) {
     if (!coords) return undefined;
@@ -17,7 +43,7 @@ function wazeLinkByCoords(coords?: Coords) {
 
 export function InteractiveMap() {
     const mapContainer = useRef<HTMLDivElement>(null);
-    const mapInstance = useRef<any>(null);
+    const mapInstance = useRef<LeafletMap | null>(null);
 
     useEffect(() => {
         if (!mapContainer.current) return;
@@ -30,9 +56,13 @@ export function InteractiveMap() {
                 return;
             }
 
+            const L = (window as Window & { L?: LeafletLike }).L;
+            if (!L) return;
+            const container = mapContainer.current;
+            if (!container) return;
+
             try {
-                const L = (window as any).L;
-                const map = L.map(mapContainer.current, {
+                const map = L.map(container, {
                     center: [44.435405, 26.15],
                     zoom: 13,
                     scrollWheelZoom: true,
@@ -47,7 +77,7 @@ export function InteractiveMap() {
                 }).addTo(map);
 
                 // Add custom markers for each location
-                const markers: any[] = [];
+                const markers: LeafletMarker[] = [];
                 content.locations.forEach((location, index) => {
                     const mapsLink = location.mapsUrl;
                     const wazeLink = wazeLinkByCoords(location.coords);
@@ -95,20 +125,19 @@ export function InteractiveMap() {
                     // increase z-index so markers sit above other overlays
                     try {
                         marker.setZIndexOffset?.(1000);
-                    } catch (e) {
+                    } catch {
                         /* ignore */
                     }
 
                     marker.addTo(map);
 
                     // ensure marker DOM element is above others once added
-                    marker.on && marker.on("add", () => {
-                        const el = marker.getElement && marker.getElement();
+                    marker.on?.("add", () => {
+                        const el = marker.getElement?.();
                         if (el) el.style.zIndex = "9999";
                     });
 
                     markers.push(marker);
-                    console.debug("Added marker", { index, coords: location.coords });
                 });
 
                 // If we added markers, fit bounds so they are visible
@@ -121,7 +150,7 @@ export function InteractiveMap() {
                         } else {
                             map.fitBounds(bounds.pad ? bounds.pad(0.15) : bounds, { padding: [60, 60] });
                         }
-                    } catch (e) {
+                    } catch {
                         // fallback: center on first marker
                         const first = markers[0];
                         if (first && first.getLatLng) {
@@ -134,13 +163,13 @@ export function InteractiveMap() {
                 setTimeout(() => {
                     map.invalidateSize();
                 }, 100);
-            } catch (error) {
-                console.error("Map initialization error:", error);
+            } catch {
+                // Leave map empty if initialization fails.
             }
         };
 
         // Load Leaflet library if not already loaded
-        if (!(window as any).L) {
+        if (!(window as Window & { L?: LeafletLike }).L) {
             const link = document.createElement("link");
             link.rel = "stylesheet";
             link.href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css";
@@ -151,7 +180,9 @@ export function InteractiveMap() {
             script.onload = () => {
                 setTimeout(initMap, 100);
             };
-            script.onerror = () => console.error("Failed to load Leaflet");
+            script.onerror = () => {
+                // If CDN fails, the static location cards still provide all navigation links.
+            };
             document.body.appendChild(script);
         } else {
             initMap();
