@@ -1,12 +1,12 @@
 {
-  "name": "george-andreea-invitatie-nunta",
+  "name": "andreea-george-invitatie-nunta",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint george-andreea-invitatie-nunta",
+    "lint": "eslint andreea-george-invitatie-nunta",
     "preview": "vite preview"
   },
   "dependencies": {
