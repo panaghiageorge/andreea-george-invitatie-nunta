@@ -12,16 +12,30 @@
       <meta property="og:description" content="31 octombrie 2026 · București" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="/og-image.png" />
+      <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
 
       <meta name="theme-color" content="#c8aa6a" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      
       <link
               href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
               rel="stylesheet"
       />
-      <!-- Cloudflare Web Analytics -->
-      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "df40132b701d4620bd5fe6da3d3a78ae"}'></script>
+      <script>
+        (function () {
+          var ua = (navigator.userAgent || "").toLowerCase();
+          var isBotUa = /bot|spider|crawl|slurp|curl|wget|python|scrapy|headless|selenium/.test(ua);
+          var isWebDriver = !!navigator.webdriver;
+          if (isBotUa || isWebDriver) return;
+
+          var script = document.createElement("script");
+          script.defer = true;
+          script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+          script.setAttribute("data-cf-beacon", '{"token":"df40132b701d4620bd5fe6da3d3a78ae"}');
+          document.head.appendChild(script);
+        })();
+      </script>
   </head>
   <body>
     <div id="root" style="width: 100%"></div>
