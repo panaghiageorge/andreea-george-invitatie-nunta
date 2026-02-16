@@ -1,0 +1,736 @@
+/* =========================
+   Luxury Editorial Theme
+   ========================= */
+
+/* ---------- Tokens ---------- */
+:root {
+    --lux-cream: #fbf7ef;
+    --lux-cream-2: #f6efe2;
+    --lux-text: #1f1a14;
+    --lux-muted: #6f675e;
+
+    --lux-gold: #c8aa6a;
+    --lux-gold-2: #b89453;
+    --lux-border: rgba(200, 170, 106, 0.35);
+
+    --lux-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Base / Layout ---------- */
+html,
+body,
+#root {
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Global fonts */
+body {
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+
+body {
+    /* background */
+    background: radial-gradient(
+            1200px 800px at 20% 10%,
+            var(--lux-cream) 0%,
+            var(--lux-cream-2) 55%,
+            #ffffff 100%
+    );
+    color: var(--lux-text);
+
+    /* fixed navbar compensation */
+    padding-top: 84px;
+}
+
+/* anchors not hidden under fixed navbar */
+section {
+    scroll-margin-top: 96px;
+}
+
+/* ---------- Typography ---------- */
+.lux-title {
+    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 0.3px;
+}
+
+.lux-subtle,
+.lux-muted {
+    color: var(--lux-muted);
+}
+
+.lux-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    font-size: 0.75rem;
+    color: var(--lux-muted);
+}
+
+.lux-date-display {
+    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-size: clamp(1.2rem, 4.2vw, 1.8rem);
+}
+
+/* ---------- Container ---------- */
+.lux-container {
+    max-width: 860px;
+}
+
+/* ---------- Dividers / Decorative ---------- */
+.lux-sep {
+    height: 1px;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(200, 170, 106, 0.55),
+            transparent
+    );
+}
+
+.lux-divider {
+    height: 1px;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(200, 170, 106, 0.35),
+            transparent
+    );
+}
+
+/* ---------- Cards / Surfaces ---------- */
+.lux-rounded {
+    border-radius: 1.25rem;
+}
+
+.lux-card {
+    border: 1px solid var(--lux-border);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--lux-shadow);
+    backdrop-filter: blur(6px);
+}
+
+.lux-panel {
+    border: 1px solid var(--lux-border);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--lux-shadow);
+    backdrop-filter: blur(8px);
+}
+
+.lux-panel-header {
+    padding: 1.25rem 1.25rem 0.25rem;
+}
+
+.lux-panel-body {
+    padding: 0.75rem 1.25rem 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .lux-panel-header {
+        padding: 1.5rem 1.75rem 0.25rem;
+    }
+    .lux-panel-body {
+        padding: 0.75rem 1.75rem 1.75rem;
+    }
+}
+
+/* Detail cards inside the details panel */
+.lux-info-card {
+    border: 1px solid rgba(200, 170, 106, 0.22);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.lux-number {
+    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(200, 170, 106, 0.85);
+}
+
+/* ---------- Buttons ---------- */
+.btn-lux {
+    background: linear-gradient(180deg, var(--lux-gold) 0%, var(--lux-gold-2) 100%);
+    color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.btn-lux:hover,
+.btn-lux:focus {
+    color: #fff;
+    filter: brightness(0.98);
+}
+
+.btn-outline-lux {
+    background: transparent;
+    border: 1px solid var(--lux-border);
+    color: var(--lux-text);
+}
+
+.btn-outline-lux:hover,
+.btn-outline-lux:focus {
+    background: rgba(200, 170, 106, 0.12);
+    color: var(--lux-text);
+    border-color: rgba(200, 170, 106, 0.5);
+}
+
+/* ---------- Navbar (Editorial) ---------- */
+.lux-nav {
+    transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.lux-nav--top {
+    background: rgba(255, 255, 255, 0);
+    border-bottom: 1px solid rgba(200, 170, 106, 0);
+    box-shadow: none;
+    backdrop-filter: blur(0px);
+}
+
+.lux-nav--scrolled {
+    background: rgba(251, 247, 239, 0.78);
+    border-bottom: 1px solid rgba(200, 170, 106, 0.28);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(14px);
+}
+
+.lux-nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0;
+    color: var(--lux-muted);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}
+
+.lux-nav-link:hover {
+    color: var(--lux-text);
+}
+
+.lux-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(200, 170, 106, 0.85),
+            transparent
+    );
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 220ms ease;
+}
+
+.lux-nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.lux-nav-link.active {
+    color: var(--lux-text);
+}
+
+.lux-nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ---------- Hero (Editorial) ---------- */
+.lux-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 2.75rem 0 2.25rem;
+}
+
+@media (min-width: 768px) {
+    .lux-hero {
+        padding: 4.5rem 0 3.25rem;
+    }
+}
+
+.lux-monogram {
+    position: absolute;
+    inset: -30px -30px auto auto;
+    pointer-events: none;
+    user-select: none;
+
+    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-weight: 600;
+    letter-spacing: 6px;
+    color: rgba(200, 170, 106, 0.13);
+    font-size: clamp(5rem, 18vw, 12rem);
+    line-height: 1;
+    transform: rotate(8deg);
+}
+
+.lux-monogram-2 {
+    position: absolute;
+    inset: auto auto -40px -20px;
+    pointer-events: none;
+    user-select: none;
+
+    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-weight: 600;
+    letter-spacing: 6px;
+    color: rgba(200, 170, 106, 0.08);
+    font-size: clamp(4rem, 14vw, 9rem);
+    line-height: 1;
+    transform: rotate(-10deg);
+}
+
+
+
+/* Details card: icon + watermark */
+.lux-icon-gold {
+    color: rgba(200, 170, 106, 0.95);
+}
+
+.lux-watermark {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: rgba(200, 170, 106, 0.14);
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* ---------- Countdown (Luxury) ---------- */
+.lux-countdown {
+    border: 1px solid rgba(200, 170, 106, 0.22);
+    background: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+.lux-countdown-card {
+    border: 1px solid rgba(200, 170, 106, 0.18);
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 1rem;
+}
+
+.lux-countdown-value {
+    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: var(--lux-text);
+}
+
+.lux-countdown-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.68rem;
+    color: var(--lux-muted);
+}
+
+.lux-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(200, 170, 106, 0.7);
+    box-shadow: 0 0 0 6px rgba(200, 170, 106, 0.12);
+}
+
+
+/* Countdown responsive layout */
+.lux-countdown-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    .lux-countdown-grid {
+        display: flex;
+        gap: 0;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile nav drawer */
+.lux-drawer {
+    border-top: 1px solid rgba(200, 170, 106, 0.22);
+    background: rgba(251, 247, 239, 0.92);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.10);
+}
+
+.lux-drawer-link {
+    display: block;
+    padding: 14px 0;
+    text-decoration: none;
+    color: var(--lux-text);
+    font-weight: 500;
+}
+
+.lux-drawer-link + .lux-drawer-link {
+    border-top: 1px solid rgba(200, 170, 106, 0.18);
+}
+
+.lux-monogram { color: rgba(200, 170, 106, 0.10); }
+.lux-monogram-2 { color: rgba(200, 170, 106, 0.06); }
+
+
+/* Countdown responsive layout (mobile grid, desktop row) */
+.lux-countdown-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    .lux-countdown-grid {
+        display: flex;
+        gap: 18px;                 /* more breathing room */
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .lux-countdown {
+        padding: 18px 22px !important;  /* bigger outer padding on desktop */
+    }
+
+    .lux-countdown-card {
+        padding: 18px 18px !important;  /* bigger card padding on desktop */
+        min-width: 105px;               /* makes cards feel editorial */
+    }
+
+    .lux-countdown-label {
+        font-size: 0.7rem;
+        letter-spacing: 2.2px;
+    }
+}
+
+
+/* Bullets only on desktop */
+.lux-countdown-bullets {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .lux-countdown-bullets {
+        display: flex;
+        gap: 18px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .lux-countdown-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(200, 170, 106, 0.7);
+        box-shadow: 0 0 0 6px rgba(200, 170, 106, 0.12);
+    }
+}
+
+/* Softer watermark (less intrusive) */
+.lux-watermark {
+    top: 12px;
+    right: 14px;
+    font-size: 52px;
+    color: rgba(200, 170, 106, 0.10); /* softer */
+    transform: rotate(-4deg);
+}
+
+/* Compact contact strip cards */
+.lux-contact-card {
+    border: 1px solid rgba(200, 170, 106, 0.18);
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 1rem;
+}
+
+/* Make info cards feel more editorial */
+.lux-info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.lux-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(4px);
+    z-index: 1020;
+}
+
+/* Gallery Styles */
+.lux-gallery {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Love Story Timeline */
+.lux-love-story {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Interactive Map */
+.lux-interactive-map {
+    width: 100%;
+}
+
+.lux-map-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.lux-map-container {
+    position: relative;
+    background: linear-gradient(135deg, rgba(251,247,239,0.8), rgba(246,239,226,0.8));
+    box-shadow: 0 20px 60px rgba(200,170,106,0.15);
+    transition: all 0.3s ease;
+}
+
+.lux-map-container:hover {
+    box-shadow: 0 24px 72px rgba(200,170,106,0.25);
+}
+
+.lux-location-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(200, 170, 106, 0.3);
+    border-radius: 16px;
+    padding: 22px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 18% 14%, rgba(200, 170, 106, 0.2), transparent 42%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(251, 247, 239, 0.92));
+    box-shadow: 0 14px 34px rgba(40, 30, 10, 0.08);
+    backdrop-filter: blur(8px);
+    cursor: default;
+}
+
+.lux-location-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c8aa6a, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lux-location-card:hover::before {
+    opacity: 1;
+}
+
+.lux-location-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(200,170,106,0.05), transparent);
+    pointer-events: none;
+}
+
+.lux-location-card:hover {
+    box-shadow: 0 20px 54px rgba(200, 170, 106, 0.22);
+    border-color: rgba(200, 170, 106, 0.55);
+}
+
+.lux-location-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #c8aa6a 0%, #b89453 100%);
+    color: #fff;
+    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    box-shadow: 0 8px 20px rgba(184, 148, 83, 0.32);
+}
+
+.lux-location-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #8d6f38;
+    background: rgba(200, 170, 106, 0.14);
+    border: 1px solid rgba(200, 170, 106, 0.32);
+}
+
+.lux-location-title {
+    margin: 0 0 0.45rem;
+    font-size: 1.06rem;
+    line-height: 1.3;
+    color: var(--lux-text);
+    font-weight: 700;
+}
+
+.lux-location-name {
+    margin: 0 0 0.4rem;
+    color: #5f5448;
+    font-size: 0.94rem;
+    font-weight: 600;
+}
+
+.lux-location-address {
+    margin: 0 0 0.95rem;
+    color: var(--lux-muted);
+    font-size: 0.84rem;
+}
+
+.lux-location-parking {
+    margin-bottom: 14px;
+    padding: 10px 11px;
+    border-radius: 10px;
+    border: 1px solid rgba(200, 170, 106, 0.25);
+    background: rgba(200, 170, 106, 0.09);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 0.79rem;
+    color: #665b4f;
+    flex: 1;
+}
+
+.lux-location-parking-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #8d6f38;
+}
+
+.lux-location-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: auto;
+}
+
+.lux-location-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 34px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.lux-location-btn:hover {
+    transform: translateY(-2px);
+}
+
+.lux-location-btn-primary {
+    color: #fff;
+    border: 1px solid rgba(184, 148, 83, 0.45);
+    background: linear-gradient(135deg, #c8aa6a 0%, #b89453 100%);
+}
+
+.lux-location-btn-primary:hover {
+    box-shadow: 0 10px 20px rgba(184, 148, 83, 0.3);
+}
+
+.lux-location-btn-secondary {
+    color: #8d6f38;
+    border: 1px solid rgba(200, 170, 106, 0.35);
+    background: rgba(200, 170, 106, 0.14);
+}
+
+.lux-location-btn-secondary:hover {
+    border-color: rgba(200, 170, 106, 0.55);
+    box-shadow: 0 8px 18px rgba(200, 170, 106, 0.18);
+}
+
+@media (max-width: 575.98px) {
+    .lux-location-card {
+        padding: 18px;
+    }
+
+    .lux-location-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Custom Leaflet Markers */
+.leaflet-popup-content {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.95) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.leaflet-popup-tip {
+    background: rgba(255,255,255,0.95) !important;
+}
+
+.custom-marker {
+    /* Keep Leaflet positioning transform untouched on the marker root */
+    background: transparent;
+    border: none;
+}
+
+.custom-marker .custom-marker-inner {
+    animation: markerPulse 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes markerPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* Registry Styles */
+.lux-registry {
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
