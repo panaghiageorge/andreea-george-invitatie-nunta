@@ -2,9 +2,9 @@ export const content = {
     couple: "Andreea & George",
     monogram: "AG",
     tagline: "Vă invităm să sărbătoriți alături de noi",
-    dateText: "31 octombrie 2026",
+    dateText: "17 octombrie 2026",
     cityText: "București",
-    countdownTargetLocal: "2026-10-31T00:00:00",
+    countdownTargetLocal: "2026-10-17T00:00:00",
     message: {
         title: "Un moment special",
         text: "Ne dorim ca această zi să fie despre iubire, bucurie și oameni dragi — iar voi sunteți parte din povestea noastră.",
@@ -23,7 +23,7 @@ export const content = {
         {
             time: "19:00",
             title: "Petrecerea",
-            subtitle: "Terra Events Hall",
+            subtitle: "Velveto Events • sala V Lounge",
         },
     ],
     locations: [
@@ -49,11 +49,11 @@ export const content = {
         },
         {
             title: "Petrecerea",
-            name: "Terra Events Hall",
-            address: "Bulevardul Lacul Tei 1 bis, 020371",
+            name: "Velveto Events • sala V Lounge",
+            address: "Strada Oltețului 30, 014192",
             city: "București",
             time: "19:00",
-            mapsUrl: "https://maps.app.goo.gl/z7F2hCALH8nkEmFf6",
+            mapsUrl: "https://maps.app.goo.gl/DdJmCjnXTsRHXyUu8",
             parkingNote: "Locația dispune de parcare privată gratuită pentru invitați.",
             coords: { lat: 44.4589923, lng: 26.1073530 },
         },
@@ -73,7 +73,7 @@ export const content = {
             text: "Parcarea se găsește în zonă (în funcție de disponibilitate)."
         },
         {
-            title: "Parcare • Terra Events Hall",
+            title: "Parcare • Velveto Events",
             text: "Locația dispune de parcare privată gratuită pentru invitați."
         },
         {
@@ -116,24 +116,18 @@ export const content = {
         },
         {
             id: 3,
-            src: "https://images.unsplash.com/photo-1520763185298-1b434c919abe?w=800&h=600&fit=crop",
-            alt: "Memories",
-            category: "memories"
-        },
-        {
-            id: 4,
             src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=600&fit=crop",
             alt: "Love",
             category: "couple"
         },
         {
-            id: 5,
+            id: 4,
             src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&h=600&fit=crop",
             alt: "Smile",
             category: "couple"
         },
         {
-            id: 6,
+            id: 5,
             src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=600&fit=crop",
             alt: "Journey",
             category: "memories"
