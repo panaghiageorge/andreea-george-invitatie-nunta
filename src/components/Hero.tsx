@@ -18,10 +18,11 @@ export function Hero() {
 
                     {/* Couple */}
                     <h1
-                        className="lux-title fw-semibold mt-2 mb-2"
+                        className="lux-title lux-hero-title fw-semibold mt-2 mb-2"
                         style={{ fontSize: "clamp(2.2rem, 7vw, 4rem)", lineHeight: 1.05 }}
                     >
-                        {content.couple}
+                        <span>Andreea &</span>
+                        <span>George</span>
                     </h1>
 
                     {/* Date */}

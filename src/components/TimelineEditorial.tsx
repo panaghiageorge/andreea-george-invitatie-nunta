@@ -7,14 +7,7 @@ export function TimelineEditorial() {
             <div className="w-100" style={{ maxWidth: 820 }}>
                 <div className="position-relative">
                     {/* vertical line */}
-                    <div
-                        className="position-absolute top-0 bottom-0"
-                        style={{
-                            left: 18,
-                            width: 1,
-                            background: "linear-gradient(180deg, transparent, rgba(200,170,106,0.65), transparent)",
-                        }}
-                    />
+                    <div className="lux-timeline-line" />
 
                     <div className="d-flex flex-column gap-4">
                         {content.schedule.map((item, idx) => (
@@ -24,26 +17,11 @@ export function TimelineEditorial() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.25 }}
                                 transition={{ duration: 0.5, delay: idx * 0.04 }}
-                                className="d-flex gap-3 align-items-start"
+                                className="lux-timeline-item"
                             >
                                 {/* dot */}
-                                <div
-                                    className="flex-shrink-0 mt-1"
-                                    style={{
-                                        width: 36,
-                                        display: "flex",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    <div
-                                        style={{
-                                            width: 10,
-                                            height: 10,
-                                            borderRadius: 999,
-                                            background: "var(--lux-gold)",
-                                            boxShadow: "0 0 0 6px rgba(200,170,106,0.14)",
-                                        }}
-                                    />
+                                <div className="lux-timeline-dot-wrap">
+                                    <div className="lux-timeline-dot" />
                                 </div>
 
                                 {/* content card */}

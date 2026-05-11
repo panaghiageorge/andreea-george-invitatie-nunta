@@ -47,7 +47,6 @@ export function Details() {
                     <div className="lux-panel-header">
                         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2">
                             <div>
-                                <div className="lux-eyebrow">Pe scurt</div>
                                 <div className="lux-title fw-semibold mt-2" style={{ fontSize: "1.25rem" }}>
                                     Detalii utile
                                 </div>

@@ -15,7 +15,6 @@ export const content = {
             title: "Ceremonia religioasă",
             subtitle: "Biserica Sfinții Apostoli Petru și Pavel",
         },
-
         {
             time: "19:00",
             title: "Petrecerea",
@@ -39,9 +38,9 @@ export const content = {
             address: "Strada Oltețului 30, 014192",
             city: "București",
             time: "19:00",
-            mapsUrl: "https://maps.app.goo.gl/DdJmCjnXTsRHXyUu8",
+            mapsUrl: "https://maps.app.goo.gl/FtriUu9nJwJ7rbgh8",
             parkingNote: "Locația dispune de parcare privată gratuită pentru invitați.",
-            coords: { lat: 44.4589923, lng: 26.1073530 },
+            coords: { lat: 44.471818, lng: 26.1156204 },
         },
     ],
     contacts: [
