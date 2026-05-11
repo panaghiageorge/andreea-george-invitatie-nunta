@@ -232,7 +232,7 @@ export function InteractiveMap() {
                     return (
                         <motion.div
                             key={index}
-                            className="col-12 col-md-6 col-lg-4"
+                            className="col-12 col-md-6 col-lg-6"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

@@ -11,9 +11,11 @@ const SECTIONS = [
 export function Navbar() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [clickedActive, setClickedActive] = useState<string | null>(null);
 
     const ids = useMemo(() => SECTIONS.map((s) => s.id), []);
     const active = useActiveSection(ids);
+    const displayActive = clickedActive ?? active;
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 18);
@@ -33,6 +35,12 @@ export function Navbar() {
     }, [open]);
 
     const close = () => setOpen(false);
+
+    const handleNavClick = (id: string) => {
+        setClickedActive(id);
+        setOpen(false);
+        window.setTimeout(() => setClickedActive(null), 900);
+    };
 
     return (
         <>
@@ -60,7 +68,8 @@ export function Navbar() {
                             <a
                                 key={s.id}
                                 href={`#${s.id}`}
-                                className={["lux-nav-link", active === s.id ? "active" : ""].join(" ")}
+                                className={["lux-nav-link", displayActive === s.id ? "active" : ""].join(" ")}
+                                onClick={() => handleNavClick(s.id)}
                             >
                                 {s.label}
                             </a>
@@ -89,10 +98,10 @@ export function Navbar() {
                                     key={s.id}
                                     href={`#${s.id}`}
                                     className="lux-drawer-link"
-                                    onClick={close}
+                                    onClick={() => handleNavClick(s.id)}
                                 >
                   <span className="lux-subtle me-2" style={{ letterSpacing: 1 }}>
-                    {active === s.id ? "•" : " "}
+                    {displayActive === s.id ? "•" : " "}
                   </span>
                                     {s.label}
                                 </a>

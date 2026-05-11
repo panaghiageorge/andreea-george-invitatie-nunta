@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
 import { content } from "../content";
 
+type LoveStoryEvent = {
+    year: string;
+    title: string;
+    description: string;
+};
+
 export function LoveStory() {
-    const { loveStory } = content;
+    const loveStory = (content as typeof content & { loveStory?: { events: LoveStoryEvent[] } }).loveStory;
+
+    if (!loveStory) return null;
 
     return (
         <div className="lux-love-story">

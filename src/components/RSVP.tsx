@@ -9,7 +9,8 @@ function isValidRsvpUrl(url: string) {
 }
 
 export function RSVP() {
-    const disabled = !isValidRsvpUrl(content.rsvpUrl);
+    const rsvpUrl = (content as typeof content & { rsvpUrl?: string }).rsvpUrl ?? "";
+    const disabled = !isValidRsvpUrl(rsvpUrl);
 
     return (
         <div className="d-flex justify-content-center">
@@ -52,7 +53,7 @@ export function RSVP() {
                                 <motion.a
                                     whileHover={{ scale: disabled ? 1 : 1.02 }}
                                     whileTap={{ scale: disabled ? 1 : 0.98 }}
-                                    href={disabled ? undefined : content.rsvpUrl}
+                                    href={disabled ? undefined : rsvpUrl}
                                     target="_blank"
                                     rel="noreferrer"
                                     className={[

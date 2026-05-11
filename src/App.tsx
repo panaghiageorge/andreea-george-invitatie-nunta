@@ -41,7 +41,7 @@ export default function App() {
             <footer className="py-4">
                 <div className="container d-flex justify-content-center px-3">
                     <div
-                        className="w-100 lux-container d-flex justify-content-between align-items-center flex-wrap gap-2"
+                        className="w-100 lux-container d-flex justify-content-center justify-content-sm-between align-items-center flex-wrap gap-2 text-center text-sm-start"
                         style={{ borderTop: "1px solid rgba(200,170,106,0.22)", paddingTop: 16 }}
                     >
                         <div className="small lux-subtle">

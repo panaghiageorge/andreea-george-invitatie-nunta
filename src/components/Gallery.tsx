@@ -3,9 +3,16 @@ import { X } from "lucide-react";
 import { useState } from "react";
 import { content } from "../content";
 
+type GalleryImage = {
+    id: number;
+    src: string;
+    alt: string;
+};
+
 export function Gallery() {
+    const gallery = (content as typeof content & { gallery?: GalleryImage[] }).gallery ?? [];
     const [selectedId, setSelectedId] = useState<number | null>(null);
-    const selectedImage = content.gallery.find(img => img.id === selectedId);
+    const selectedImage = gallery.find((img) => img.id === selectedId);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -32,7 +39,7 @@ export function Gallery() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
             >
-                {content.gallery.map((image) => (
+                {gallery.map((image) => (
                     <motion.div
                         key={image.id}
                         className="col-12 col-sm-6 col-md-4"
