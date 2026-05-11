@@ -20,7 +20,7 @@ export function RSVP() {
                         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2">
                             <div className="d-flex align-items-center gap-2">
                                 <CalendarCheck2 size={18} />
-                                <div className="lux-eyebrow">RSVP</div>
+                                <div className="lux-eyebrow">Confirmare</div>
                             </div>
 
                             <div className="lux-subtle small">Vă mulțumim pentru răspuns</div>
@@ -36,7 +36,7 @@ export function RSVP() {
                                     className="lux-title fw-semibold mb-2"
                                     style={{ fontSize: "clamp(1.2rem, 3.2vw, 1.6rem)" }}
                                 >
-                                    Confirmare prezență
+                                    Confirmarea prezenței
                                 </h3>
 
                                 <p className="lux-subtle mb-0">
@@ -65,14 +65,14 @@ export function RSVP() {
                                     }}
                                     style={{ fontWeight: 600 }}
                                 >
-                                    {disabled ? "RSVP (în curând)" : "Completează RSVP"}
+                                    {disabled ? "Confirmare în curând" : "Confirmă prezența"}
                                     {!disabled ? <ExternalLink size={16} /> : null}
                                 </motion.a>
 
                                 <div className="text-center mt-2 small lux-subtle">
                                     {disabled ? (
                                         <>
-                                            Adaugi link-ul în <code>src/content.ts</code>.
+                                            Adaugă linkul în <code>src/content.ts</code>.
                                         </>
                                     ) : (
                                         <>Ne ajută mult pentru organizare.</>
@@ -85,7 +85,7 @@ export function RSVP() {
 
                 {/* small footer note */}
                 <div className="text-center lux-subtle small mt-3">
-                    RSVP-ul poate fi actualizat oricând — site-ul se redeployează automat după push.
+                    Confirmarea poate fi actualizată oricând; site-ul se actualizează automat după publicare.
                 </div>
             </div>
         </div>

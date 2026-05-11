@@ -80,7 +80,7 @@ export function Navbar() {
                     <button
                         className="d-lg-none btn btn-outline-lux rounded-pill px-3 py-2"
                         onClick={() => setOpen((v) => !v)}
-                        aria-label="Open menu"
+                        aria-label={open ? "Închide meniul" : "Deschide meniul"}
                         aria-expanded={open}
                     >
                         {open ? "Închide" : "Meniu"}
@@ -100,7 +100,7 @@ export function Navbar() {
                                     className="lux-drawer-link"
                                     onClick={() => handleNavClick(s.id)}
                                 >
-                  <span className="lux-subtle me-2" style={{ letterSpacing: 1 }}>
+                  <span className="lux-subtle me-2">
                     {displayActive === s.id ? "•" : " "}
                   </span>
                                     {s.label}

@@ -47,7 +47,7 @@ export function TimelineEditorial() {
                                 </div>
 
                                 {/* content card */}
-                                <div className="card lux-card lux-rounded w-100">
+                                <div className="card lux-card lux-rounded flex-grow-1 min-width-0">
                                     <div className="card-body py-4 px-4">
                                         <div className="lux-eyebrow">{item.time}</div>
                                         <div className="lux-title fw-semibold mt-2" style={{ fontSize: "1.25rem" }}>

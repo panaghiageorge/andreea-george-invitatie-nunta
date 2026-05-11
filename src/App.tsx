@@ -18,23 +18,23 @@ export default function App() {
 
             <Section
                 id="program"
-                eyebrow="The day"
+                eyebrow="Ziua nunții"
                 title="Program"
-                subtitle="Orele de mai jos sunt orientative și pot suferi mici modificări."
+                subtitle="Două momente simple, cu oamenii dragi aproape."
             >
                 <TimelineEditorial />
             </Section>
 
             <Section
                 id="locatii"
-                eyebrow="Navigation"
-                title="Locații și Hartă"
-                subtitle="Alege aplicația preferată pentru navigație."
+                eyebrow="Cum ajungi"
+                title="Locații"
+                subtitle="Alege aplicația preferată și pornește la drum."
             >
                 <InteractiveMap />
             </Section>
 
-            <Section id="detalii" eyebrow="Info" title="Detalii" subtitle="Contact, informații utile și orice actualizări.">
+            <Section id="detalii" eyebrow="Pe scurt" title="Detalii" subtitle="Pentru confirmarea prezenței sau întrebări, ne găsiți ușor.">
                 <Details />
             </Section>
 

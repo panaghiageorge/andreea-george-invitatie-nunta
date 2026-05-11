@@ -2,32 +2,26 @@ import { useEffect, useMemo, useState } from "react";
 import { DateTime } from "luxon";
 import { AnimatePresence, motion } from "framer-motion";
 
-type Parts = { months: number; days: number; hours: number; minutes: number; seconds: number };
+type Parts = { months: number; days: number; hours: number };
 const ZONE = "Europe/Bucharest";
 
 function clampNonNegative(n: number) {
     return Math.max(0, Math.floor(n));
 }
-function pad2(n: number) {
-    return String(n).padStart(2, "0");
-}
-
 function computeParts(targetLocalIso: string): Parts {
     const now = DateTime.now().setZone(ZONE);
     const target = DateTime.fromISO(targetLocalIso, { zone: ZONE });
 
     if (!target.isValid || target <= now) {
-        return { months: 0, days: 0, hours: 0, minutes: 0, seconds: 0 };
+        return { months: 0, days: 0, hours: 0 };
     }
 
-    const diff = target.diff(now, ["months", "days", "hours", "minutes", "seconds"]).toObject();
+    const diff = target.diff(now, ["months", "days", "hours"]).toObject();
 
     return {
         months: clampNonNegative(diff.months ?? 0),
         days: clampNonNegative(diff.days ?? 0),
         hours: clampNonNegative(diff.hours ?? 0),
-        minutes: clampNonNegative(diff.minutes ?? 0),
-        seconds: clampNonNegative(diff.seconds ?? 0),
     };
 }
 
@@ -74,7 +68,7 @@ export function Countdown({ targetLocalIso }: { targetLocalIso: string }) {
     const [parts, setParts] = useState<Parts>(() => computeParts(targetLocalIso));
 
     useEffect(() => {
-        const id = setInterval(() => setParts(computeParts(targetLocalIso)), 1000);
+        const id = setInterval(() => setParts(computeParts(targetLocalIso)), 60_000);
         return () => clearInterval(id);
     }, [targetLocalIso]);
 
@@ -82,9 +76,7 @@ export function Countdown({ targetLocalIso }: { targetLocalIso: string }) {
         () => [
             { label: "Luni", value: String(parts.months) },
             { label: "Zile", value: String(parts.days) },
-            { label: "Ore", value: pad2(parts.hours) },
-            { label: "Minute", value: pad2(parts.minutes) },
-            { label: "Secunde", value: pad2(parts.seconds) },
+            { label: "Ore", value: String(parts.hours) },
         ],
         [parts]
     );

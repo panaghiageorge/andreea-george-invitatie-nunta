@@ -7,7 +7,7 @@ export const content = {
     countdownTargetLocal: "2026-10-17T00:00:00",
     message: {
         title: "Un moment special",
-        text: "Ne dorim ca această zi să fie despre iubire, bucurie și oameni dragi — iar voi sunteți parte din povestea noastră.",
+        text: "Ne dorim ca această zi să fie despre iubire, bucurie și oameni dragi, iar voi sunteți parte din povestea noastră.",
     },
     schedule: [
         {
@@ -50,20 +50,8 @@ export const content = {
     ],
     notes: [
         {
-            title: "Confirmare prezență",
-            text: "Dacă puteți, ne-ar ajuta mult să confirmați prezența din timp, pentru a organiza cât mai bine această zi."
-        },
-        {
-            title: "Parcare • Biserică",
-            text: "Parcarea se găsește în zonă (în funcție de disponibilitate)."
-        },
-        {
-            title: "Parcare • Velveto Events",
-            text: "Locația dispune de parcare privată gratuită pentru invitați."
-        },
-        {
-            title: "Contact",
-            text: "Pentru orice întrebare sau detaliu, ne puteți contacta oricând."
+            title: "Confirmarea prezenței",
+            text: "Dacă puteți, ne-ar ajuta mult să confirmați prezența din timp."
         }
     ],
 };

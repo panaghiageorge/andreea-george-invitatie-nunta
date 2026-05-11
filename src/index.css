@@ -4,19 +4,26 @@
 
 /* ---------- Tokens ---------- */
 :root {
-    --lux-cream: #fbf7ef;
-    --lux-cream-2: #f6efe2;
-    --lux-text: #1f1a14;
-    --lux-muted: #6f675e;
+    --lux-cream: #fcf8f0;
+    --lux-cream-2: #f3eadb;
+    --lux-paper: rgba(255, 255, 255, 0.84);
+    --lux-text: #241d17;
+    --lux-muted: #70665b;
 
-    --lux-gold: #c8aa6a;
-    --lux-gold-2: #b89453;
-    --lux-border: rgba(200, 170, 106, 0.35);
+    --lux-gold: #b99657;
+    --lux-gold-2: #97743d;
+    --lux-border: rgba(185, 150, 87, 0.28);
 
-    --lux-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+    --lux-shadow: 0 16px 44px rgba(56, 42, 23, 0.08);
 }
 
 /* ---------- Base / Layout ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -26,24 +33,32 @@ body,
 html {
     scroll-behavior: smooth;
 }
-/* Global fonts */
+
 body {
+    min-width: 320px;
+    background:
+        linear-gradient(90deg, rgba(185, 150, 87, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, var(--lux-cream) 0%, #fffaf3 42%, #ffffff 100%);
+    background-size: 100% 100%, 100% 100%;
+    color: var(--lux-text);
+    padding-top: 74px;
     font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-
-body {
-    /* background */
-    background: radial-gradient(
-            1200px 800px at 20% 10%,
-            var(--lux-cream) 0%,
-            var(--lux-cream-2) 55%,
-            #ffffff 100%
-    );
-    color: var(--lux-text);
-
-    /* fixed navbar compensation */
-    padding-top: 84px;
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, transparent, rgba(185, 150, 87, 0.09), transparent) 50% 0 / min(82vw, 760px) 1px no-repeat,
+        linear-gradient(90deg, transparent, rgba(185, 150, 87, 0.08), transparent) 50% 100% / min(82vw, 760px) 1px no-repeat;
+    z-index: -1;
 }
 
 /* anchors not hidden under fixed navbar */
@@ -53,8 +68,8 @@ section {
 
 /* ---------- Typography ---------- */
 .lux-title {
-    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
-    letter-spacing: 0.3px;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 0;
 }
 
 .lux-subtle,
@@ -64,21 +79,52 @@ section {
 
 .lux-eyebrow {
     text-transform: uppercase;
-    letter-spacing: 2.4px;
-    font-size: 0.75rem;
-    color: var(--lux-muted);
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8a7660;
 }
 
 .lux-date-display {
-    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
-    letter-spacing: 0.6px;
-    font-size: clamp(1.2rem, 4.2vw, 1.8rem);
+    letter-spacing: 0;
+    font-size: clamp(1.35rem, 5vw, 2rem);
+}
+
+.lux-message-section {
+    padding: 2.35rem 0;
+    overflow: hidden;
+}
+
+.lux-message-section .lux-container {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.lux-message-section p {
+    color: #2f251d;
+    font-size: clamp(1.28rem, 5.6vw, 1.8rem) !important;
+    line-height: 1.45 !important;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    body {
+        padding-top: 84px;
+    }
+
+    .lux-message-section {
+        padding: 4rem 0;
+    }
 }
 
 /* ---------- Container ---------- */
 .lux-container {
-    max-width: 860px;
+    max-width: 900px;
+    min-width: 0;
 }
 
 /* ---------- Dividers / Decorative ---------- */
@@ -87,7 +133,7 @@ section {
     background: linear-gradient(
             90deg,
             transparent,
-            rgba(200, 170, 106, 0.55),
+            rgba(185, 150, 87, 0.62),
             transparent
     );
 }
@@ -104,29 +150,31 @@ section {
 
 /* ---------- Cards / Surfaces ---------- */
 .lux-rounded {
-    border-radius: 1.25rem;
+    border-radius: 14px;
 }
 
 .lux-card {
     border: 1px solid var(--lux-border);
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: var(--lux-shadow);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 243, 0.86));
+    box-shadow: 0 18px 46px rgba(56, 42, 23, 0.11);
     backdrop-filter: blur(6px);
 }
 
 .lux-panel {
     border: 1px solid var(--lux-border);
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: var(--lux-shadow);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 243, 0.86));
+    box-shadow: 0 18px 46px rgba(56, 42, 23, 0.11);
     backdrop-filter: blur(8px);
 }
 
 .lux-panel-header {
-    padding: 1.25rem 1.25rem 0.25rem;
+    padding: 1.1rem 1rem 0.25rem;
 }
 
 .lux-panel-body {
-    padding: 0.75rem 1.25rem 1.25rem;
+    padding: 0.75rem 1rem 1rem;
 }
 
 @media (min-width: 768px) {
@@ -141,13 +189,13 @@ section {
 /* Detail cards inside the details panel */
 .lux-info-card {
     border: 1px solid rgba(200, 170, 106, 0.22);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.78);
 }
 
 .lux-number {
-    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     color: rgba(200, 170, 106, 0.85);
 }
 
@@ -156,6 +204,7 @@ section {
     background: linear-gradient(180deg, var(--lux-gold) 0%, var(--lux-gold-2) 100%);
     color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 18px rgba(151, 116, 61, 0.2);
 }
 
 .btn-lux:hover,
@@ -165,7 +214,7 @@ section {
 }
 
 .btn-outline-lux {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.55);
     border: 1px solid var(--lux-border);
     color: var(--lux-text);
 }
@@ -179,6 +228,8 @@ section {
 
 /* ---------- Navbar (Editorial) ---------- */
 .lux-nav {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
     transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -190,7 +241,7 @@ section {
 }
 
 .lux-nav--scrolled {
-    background: rgba(251, 247, 239, 0.78);
+    background: rgba(252, 248, 240, 0.86);
     border-bottom: 1px solid rgba(200, 170, 106, 0.28);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(14px);
@@ -202,7 +253,8 @@ section {
     padding: 0.5rem 0;
     color: var(--lux-muted);
     text-decoration: none;
-    letter-spacing: 0.3px;
+    letter-spacing: 0;
+    font-size: 0.95rem;
 }
 
 .lux-nav-link:hover {
@@ -247,12 +299,46 @@ section {
 .lux-hero {
     position: relative;
     overflow: hidden;
-    padding: 2.75rem 0 2.25rem;
+    padding: 1rem 0 1.75rem;
 }
 
 @media (min-width: 768px) {
     .lux-hero {
-        padding: 4.5rem 0 3.25rem;
+        padding: 4.25rem 0 3.25rem;
+    }
+}
+
+.lux-hero .lux-container {
+    width: 100%;
+    max-width: min(900px, calc(100vw - 32px));
+    padding: 1.35rem 1rem 1.1rem;
+    border-top: 1px solid rgba(185, 150, 87, 0.34);
+    border-bottom: 1px solid rgba(185, 150, 87, 0.28);
+    background:
+        linear-gradient(90deg, rgba(185, 150, 87, 0.18), transparent 16%, transparent 84%, rgba(185, 150, 87, 0.18)) top / 100% 1px no-repeat,
+        linear-gradient(90deg, rgba(185, 150, 87, 0.12), transparent 18%, transparent 82%, rgba(185, 150, 87, 0.12)) bottom / 100% 1px no-repeat;
+}
+
+.lux-hero h1.lux-title {
+    color: #2b2118;
+    font-size: 24px;
+    line-height: 0.95 !important;
+}
+
+.lux-hero .lux-date-display {
+    color: #8d6f38;
+    margin-top: 0.4rem;
+    font-size: 1.5rem;
+}
+
+.lux-hero .lux-subtle {
+    color: #756657;
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+    .lux-hero .lux-container {
+        padding: 2.25rem 0 1.9rem;
     }
 }
 
@@ -262,10 +348,10 @@ section {
     pointer-events: none;
     user-select: none;
 
-    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
-    letter-spacing: 6px;
-    color: rgba(200, 170, 106, 0.10);
+    letter-spacing: 0;
+    color: rgba(185, 150, 87, 0.14);
     font-size: clamp(5rem, 18vw, 12rem);
     line-height: 1;
     transform: rotate(8deg);
@@ -277,10 +363,10 @@ section {
     pointer-events: none;
     user-select: none;
 
-    font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
-    letter-spacing: 6px;
-    color: rgba(200, 170, 106, 0.06);
+    letter-spacing: 0;
+    color: rgba(185, 150, 87, 0.09);
     font-size: clamp(4rem, 14vw, 9rem);
     line-height: 1;
     transform: rotate(-10deg);
@@ -297,11 +383,11 @@ section {
     position: absolute;
     top: 12px;
     right: 14px;
-    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
     font-size: 52px;
     line-height: 1;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     color: rgba(200, 170, 106, 0.10);
     transform: rotate(-4deg);
     pointer-events: none;
@@ -312,27 +398,35 @@ section {
 /* ---------- Countdown (Luxury) ---------- */
 .lux-countdown {
     border: 1px solid rgba(200, 170, 106, 0.22);
-    background: rgba(255, 255, 255, 0.65);
-    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.06);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 243, 0.76));
     backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: min(520px, calc(100vw - 32px)) !important;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(56, 42, 23, 0.1);
 }
 
 .lux-countdown-card {
-    border: 1px solid rgba(200, 170, 106, 0.18);
-    background: rgba(255, 255, 255, 0.72);
-    border-radius: 1rem;
+    border: 1px solid rgba(185, 150, 87, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 252, 247, 0.82));
+    border-radius: 10px;
+    min-width: 0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58);
 }
 
 .lux-countdown-value {
-    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 600;
-    letter-spacing: 0.6px;
+    letter-spacing: 0;
     color: var(--lux-text);
+    font-size: clamp(28px, 7vw, 34px) !important;
 }
 
 .lux-countdown-label {
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0;
     font-size: 0.68rem;
     color: var(--lux-muted);
 }
@@ -349,14 +443,14 @@ section {
 /* Mobile nav drawer */
 .lux-drawer {
     border-top: 1px solid rgba(200, 170, 106, 0.22);
-    background: rgba(251, 247, 239, 0.92);
+    background: rgba(252, 248, 240, 0.96);
     backdrop-filter: blur(14px);
-    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 16px 42px rgba(56, 42, 23, 0.11);
 }
 
 .lux-drawer-link {
     display: block;
-    padding: 14px 0;
+    padding: 15px 0;
     text-decoration: none;
     color: var(--lux-text);
     font-weight: 500;
@@ -371,29 +465,43 @@ section {
     display: grid;
     gap: 12px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-width: 0;
+}
+
+.lux-countdown-grid > *,
+.lux-countdown-bullets > * {
+    min-width: 0;
 }
 
 @media (min-width: 768px) {
+    .lux-map-wrapper {
+        margin-top: 24px;
+    }
+
+    .lux-map-container {
+        height: 420px;
+    }
+
     .lux-countdown-grid {
         display: flex;
-        gap: 18px;                 /* more breathing room */
+        gap: 18px;
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
     }
 
     .lux-countdown {
-        padding: 18px 22px !important;  /* bigger outer padding on desktop */
+        padding: 18px 22px !important;
     }
 
     .lux-countdown-card {
-        padding: 18px 18px !important;  /* bigger card padding on desktop */
-        min-width: 105px;               /* makes cards feel editorial */
+        padding: 18px 18px !important;
+        min-width: 105px;
     }
 
     .lux-countdown-label {
         font-size: 0.7rem;
-        letter-spacing: 2.2px;
+        letter-spacing: 0;
     }
 }
 
@@ -424,8 +532,8 @@ section {
 /* Compact contact strip cards */
 .lux-contact-card {
     border: 1px solid rgba(200, 170, 106, 0.18);
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 12px;
 }
 
 /* Make info cards feel more editorial */
@@ -458,38 +566,45 @@ section {
 /* Interactive Map */
 .lux-interactive-map {
     width: 100%;
+    min-width: 0;
 }
 
 .lux-map-wrapper {
     position: relative;
     width: 100%;
+    margin-top: 18px;
 }
 
 .lux-map-container {
     position: relative;
+    height: 320px;
+    overflow: hidden;
+    border: 1px solid rgba(200,170,106,0.35);
+    border-radius: 12px;
     background: linear-gradient(135deg, rgba(251,247,239,0.8), rgba(246,239,226,0.8));
-    box-shadow: 0 20px 60px rgba(200,170,106,0.15);
+    box-shadow: 0 18px 44px rgba(56, 42, 23, 0.11);
     transition: all 0.3s ease;
 }
 
 .lux-map-container:hover {
-    box-shadow: 0 24px 72px rgba(200,170,106,0.25);
+    box-shadow: 0 16px 42px rgba(185, 150, 87, 0.18);
 }
 
 .lux-location-card {
     position: relative;
     overflow: hidden;
     transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(200, 170, 106, 0.3);
-    border-radius: 16px;
-    padding: 22px;
+    border: 1px solid rgba(185, 150, 87, 0.24);
+    border-radius: 12px;
+    padding: 18px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     background:
-        radial-gradient(circle at 18% 14%, rgba(200, 170, 106, 0.2), transparent 42%),
-        linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(251, 247, 239, 0.92));
-    box-shadow: 0 14px 34px rgba(40, 30, 10, 0.08);
+        linear-gradient(90deg, rgba(185, 150, 87, 0.22), transparent 26%) top / 100% 1px no-repeat,
+        radial-gradient(circle at 18% 14%, rgba(185, 150, 87, 0.16), transparent 42%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(251, 247, 239, 0.9));
+    box-shadow: 0 14px 34px rgba(40, 30, 10, 0.1);
     backdrop-filter: blur(8px);
     cursor: default;
 }
@@ -501,7 +616,7 @@ section {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #c8aa6a, transparent);
+    background: linear-gradient(90deg, transparent, var(--lux-gold), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -514,26 +629,33 @@ section {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(200,170,106,0.05), transparent);
+    background: radial-gradient(circle at 30% 30%, rgba(185, 150, 87, 0.04), transparent);
     pointer-events: none;
 }
 
 .lux-location-card:hover {
-    box-shadow: 0 20px 54px rgba(200, 170, 106, 0.22);
-    border-color: rgba(200, 170, 106, 0.55);
+    box-shadow: 0 16px 38px rgba(185, 150, 87, 0.16);
+    border-color: rgba(185, 150, 87, 0.44);
+}
+
+.lux-location-heading {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    margin-bottom: 10px;
 }
 
 .lux-location-badge {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 14px;
-    background: linear-gradient(135deg, #c8aa6a 0%, #b89453 100%);
+    background: linear-gradient(135deg, var(--lux-gold) 0%, var(--lux-gold-2) 100%);
     color: #fff;
-    font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-weight: 700;
     font-size: 1.05rem;
     box-shadow: 0 8px 20px rgba(184, 148, 83, 0.32);
@@ -543,17 +665,17 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 7px;
     width: fit-content;
     padding: 5px 10px;
     border-radius: 999px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     font-size: 0.72rem;
     font-weight: 700;
-    color: #8d6f38;
-    background: rgba(200, 170, 106, 0.14);
-    border: 1px solid rgba(200, 170, 106, 0.32);
+    color: var(--lux-gold-2);
+    background: rgba(185, 150, 87, 0.12);
+    border: 1px solid rgba(185, 150, 87, 0.26);
 }
 
 .lux-location-title {
@@ -566,23 +688,33 @@ section {
 
 .lux-location-name {
     margin: 0 0 0.4rem;
-    color: #5f5448;
-    font-size: 0.94rem;
+    color: #554a40;
+    font-size: 0.97rem;
     font-weight: 600;
 }
 
 .lux-location-address {
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
     margin: 0 0 0.95rem;
     color: var(--lux-muted);
-    font-size: 0.84rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.lux-location-address svg {
+    flex: 0 0 auto;
+    margin-top: 2px;
+    color: var(--lux-gold-2);
 }
 
 .lux-location-parking {
     margin-bottom: 14px;
     padding: 10px 11px;
-    border-radius: 10px;
-    border: 1px solid rgba(200, 170, 106, 0.25);
-    background: rgba(200, 170, 106, 0.09);
+    border-radius: 8px;
+    border: 1px solid rgba(185, 150, 87, 0.22);
+    background: rgba(185, 150, 87, 0.1);
     display: flex;
     align-items: flex-start;
     gap: 7px;
@@ -594,13 +726,13 @@ section {
 .lux-location-parking-icon {
     flex-shrink: 0;
     margin-top: 2px;
-    color: #8d6f38;
+    color: var(--lux-gold-2);
 }
 
 .lux-location-actions {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 7px;
+    gap: 8px;
     margin-top: auto;
 }
 
@@ -609,10 +741,10 @@ section {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    min-height: 34px;
-    border-radius: 7px;
+    min-height: 38px;
+    border-radius: 8px;
     text-decoration: none;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 700;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
@@ -623,8 +755,8 @@ section {
 
 .lux-location-btn-primary {
     color: #fff;
-    border: 1px solid rgba(184, 148, 83, 0.45);
-    background: linear-gradient(135deg, #c8aa6a 0%, #b89453 100%);
+    border: 1px solid rgba(151, 116, 61, 0.42);
+    background: linear-gradient(135deg, var(--lux-gold) 0%, var(--lux-gold-2) 100%);
 }
 
 .lux-location-btn-primary:hover {
@@ -632,9 +764,9 @@ section {
 }
 
 .lux-location-btn-secondary {
-    color: #8d6f38;
-    border: 1px solid rgba(200, 170, 106, 0.35);
-    background: rgba(200, 170, 106, 0.14);
+    color: var(--lux-gold-2);
+    border: 1px solid rgba(185, 150, 87, 0.32);
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .lux-location-btn-secondary:hover {
@@ -644,14 +776,41 @@ section {
 
 @media (max-width: 575.98px) {
     .lux-hero {
-        padding: 1rem 0;
+        padding: 1.25rem 0 1.75rem;
+    }
+    .lux-countdown {
+        max-width: min(340px, calc(100vw - 32px)) !important;
+        padding: 12px 10px !important;
+    }
+    .lux-countdown-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+    .lux-countdown-card {
+        padding: 14px 8px !important;
+        border-radius: 12px;
+    }
+    .lux-countdown-value {
+        font-size: 34px !important;
+    }
+    .lux-countdown-label {
+        font-size: 0.68rem;
+        letter-spacing: 0;
+    }
+    .lux-message-section {
+        padding: 2rem 0;
+    }
+    .lux-message-section p {
+        font-size: 1.4rem !important;
+        line-height: 1.48 !important;
+    }
+    .lux-map-container {
+        height: 300px;
     }
     .lux-location-card {
-        padding: 18px;
-    }
-    .py-5 {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
+        padding: 16px;
     }
     .lux-location-actions {
         grid-template-columns: repeat(2, minmax(0, 1fr));

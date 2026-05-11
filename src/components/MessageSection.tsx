@@ -4,7 +4,7 @@ export function MessageSection() {
     if (!content.message?.text) return null;
 
     return (
-        <section className="py-5">
+        <section className="lux-message-section">
             <div className="container lux-container text-center">
                 <div className="lux-sep mx-auto mb-4" style={{ maxWidth: 180 }} />
 

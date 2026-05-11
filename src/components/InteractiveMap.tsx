@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Navigation, Apple, Clock, ParkingSquare } from "lucide-react";
+import { Apple, Clock, ExternalLink, MapPin, Navigation, ParkingSquare } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { content } from "../content";
 
@@ -200,31 +200,7 @@ export function InteractiveMap() {
 
     return (
         <div className="lux-interactive-map">
-            {/* Map Container */}
-            <motion.div
-                className="lux-map-wrapper"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-            >
-                <div
-                    ref={mapContainer}
-                    className="lux-map-container"
-                    style={{
-                        height: 450,
-                        borderRadius: 16,
-                        overflow: "hidden",
-                        marginBottom: 40,
-                        border: "1px solid rgba(200,170,106,0.35)",
-                        boxShadow: "0 20px 60px rgba(200,170,106,0.15)",
-                        background: "linear-gradient(135deg, rgba(251,247,239,0.5), rgba(246,239,226,0.5))",
-                    }}
-                />
-            </motion.div>
-
-            {/* Locations Summary */}
-            <div className="row g-3 g-md-4">
+            <div className="row g-3 g-md-4 lux-locations-list">
                 {content.locations.map((location, index) => {
                     const wazeLink = wazeLinkByCoords(location.coords);
                     const appleLink = buildAppleMapsLink(location.address, location.city);
@@ -232,28 +208,37 @@ export function InteractiveMap() {
                     return (
                         <motion.div
                             key={index}
-                            className="col-12 col-md-6 col-lg-6"
-                            initial={{ opacity: 0, y: 30 }}
+                            className="col-12 col-md-6"
+                            initial={{ opacity: 0, y: 18 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.12 }}
+                            transition={{ duration: 0.4, delay: index * 0.08 }}
                         >
-                            <motion.div className="lux-location-card" whileHover={{ y: -8 }} transition={{ duration: 0.3 }}>
-                                <div className="lux-location-badge">{index + 1}</div>
+                            <motion.div className="lux-location-card" whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
+                                <div className="lux-location-heading">
+                                    <div className="lux-location-badge">{index + 1}</div>
 
-                                <div className="lux-location-time">
-                                    <Clock size={14} />
-                                    {location.time}
+                                    <div>
+                                        <div className="lux-location-time">
+                                            <Clock size={14} />
+                                            {location.time}
+                                        </div>
+                                        <h4 className="lux-location-title">{location.title}</h4>
+                                    </div>
                                 </div>
 
-                                <h4 className="lux-location-title">{location.title}</h4>
                                 <p className="lux-location-name">{location.name}</p>
-                                <p className="lux-location-address">📍 {location.address}, {location.city}</p>
+                                <p className="lux-location-address">
+                                    <MapPin size={15} />
+                                    <span>{location.address}, {location.city}</span>
+                                </p>
 
-                                <div className="lux-location-parking">
-                                    <ParkingSquare size={14} className="lux-location-parking-icon" />
-                                    <span>{location.parkingNote}</span>
-                                </div>
+                                {location.parkingNote && (
+                                    <div className="lux-location-parking">
+                                        <ParkingSquare size={14} className="lux-location-parking-icon" />
+                                        <span>{location.parkingNote}</span>
+                                    </div>
+                                )}
 
                                 <div className="lux-location-actions">
                                     <a
@@ -263,8 +248,8 @@ export function InteractiveMap() {
                                         className="lux-location-btn lux-location-btn-primary"
                                         title="Deschide în Google Maps"
                                     >
-                                        <Navigation size={12} />
-                                        Maps
+                                        <ExternalLink size={13} />
+                                        Google
                                     </a>
 
                                     {wazeLink && (
@@ -275,7 +260,7 @@ export function InteractiveMap() {
                                             className="lux-location-btn lux-location-btn-secondary"
                                             title="Deschide în Waze"
                                         >
-                                            <Navigation size={12} />
+                                            <Navigation size={13} />
                                             Waze
                                         </a>
                                     )}
@@ -287,7 +272,7 @@ export function InteractiveMap() {
                                         className="lux-location-btn lux-location-btn-secondary"
                                         title="Deschide în Apple Maps"
                                     >
-                                        <Apple size={12} />
+                                        <Apple size={13} />
                                         Apple
                                     </a>
                                 </div>
@@ -296,6 +281,21 @@ export function InteractiveMap() {
                     );
                 })}
             </div>
+
+            {/* Map Container */}
+            <motion.div
+                className="lux-map-wrapper"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+            >
+                <div
+                    ref={mapContainer}
+                    className="lux-map-container"
+                    aria-label="Hartă cu locațiile evenimentului"
+                />
+            </motion.div>
         </div>
     );
 }

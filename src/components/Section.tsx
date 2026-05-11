@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export function Section({
                             id,
-                            eyebrow = "Details",
+                            eyebrow = "Detalii",
                             title,
                             subtitle,
                             children,

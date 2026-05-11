@@ -36,7 +36,7 @@ export function Locations() {
                             className="card lux-card lux-rounded text-center"
                         >
                             <div className="card-body py-5 px-4">
-                                <div className="text-uppercase small lux-subtle" style={{ letterSpacing: 1 }}>
+                                <div className="text-uppercase small lux-subtle">
                                     {loc.title}
                                 </div>
 
