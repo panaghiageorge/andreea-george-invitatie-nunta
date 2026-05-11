@@ -20,7 +20,7 @@ export default function App() {
                 id="program"
                 eyebrow="Ziua nunții"
                 title="Program"
-                subtitle="Două momente simple, cu oamenii dragi aproape."
+                subtitle="Vă așteptăm cu drag la ceremonia religioasă și apoi la petrecere."
             >
                 <TimelineEditorial />
             </Section>
@@ -29,12 +29,12 @@ export default function App() {
                 id="locatii"
                 eyebrow="Cum ajungi"
                 title="Locații"
-                subtitle="Alege aplicația preferată și pornește la drum."
+                subtitle="Am pregătit mai jos adresele și linkurile de navigație."
             >
                 <InteractiveMap />
             </Section>
 
-            <Section id="detalii" eyebrow="Pe scurt" title="Detalii" subtitle="Pentru confirmarea prezenței sau întrebări, ne găsiți ușor.">
+            <Section id="detalii" eyebrow="Pe scurt" title="Detalii" subtitle="Pentru confirmări sau întrebări, suntem aproape.">
                 <Details />
             </Section>
 

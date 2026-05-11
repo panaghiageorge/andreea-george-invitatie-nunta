@@ -350,6 +350,11 @@ section {
     font-size: 1.5rem;
 }
 
+.lux-hero-tagline {
+    margin-top: 0.55rem;
+    font-size: 1rem;
+}
+
 .lux-hero .lux-subtle {
     color: #756657;
     font-size: 1rem;
@@ -868,7 +873,7 @@ section {
     }
 
     .lux-hero {
-        padding: 1.25rem 0 1.75rem;
+        padding: 0 0 1.75rem;
     }
     .lux-countdown {
         max-width: min(340px, calc(100vw - 32px)) !important;

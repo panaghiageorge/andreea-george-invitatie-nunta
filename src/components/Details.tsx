@@ -48,12 +48,12 @@ export function Details() {
                         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2">
                             <div>
                                 <div className="lux-title fw-semibold mt-2" style={{ fontSize: "1.25rem" }}>
-                                    Detalii utile
+                                    Detalii pentru invitați
                                 </div>
                             </div>
 
                             <div className="lux-subtle small">
-                                Suntem la un mesaj distanță.
+                                Pentru orice întrebare, ne puteți scrie oricând.
                             </div>
                         </div>
 
@@ -94,7 +94,7 @@ export function Details() {
                                             </div>
 
                                             <div className="lux-subtle small mt-3">
-                                                Pe mobil, apăsarea numărului deschide apelul.
+                                                Atingeți numărul pentru apel sau WhatsApp.
                                             </div>
                                         </div>
                                     </div>
@@ -140,7 +140,7 @@ export function Details() {
                             </div>
 
                             <div className="lux-subtle small mt-3">
-                                Detaliile pot fi actualizate dacă apar schimbări — verifică înainte de eveniment.
+                                Dacă apar modificări, vom actualiza aici informațiile.
                             </div>
                         </div>
                     </div>
