@@ -3,11 +3,8 @@ import { content } from "../content";
 import { useActiveSection } from "../hooks/useActiveSection";
 
 const SECTIONS = [
-    { id: "povestea-noastra", label: "Povestea noastră" },
-    { id: "galerie", label: "Galerie" },
     { id: "program", label: "Program" },
     { id: "locatii", label: "Locații" },
-    { id: "rsvp", label: "RSVP" },
     { id: "detalii", label: "Detalii" },
 ];
 
@@ -68,9 +65,6 @@ export function Navbar() {
                                 {s.label}
                             </a>
                         ))}
-                        <a href="#rsvp" className="btn btn-lux rounded-pill px-4 py-2">
-                            Confirmă
-                        </a>
                     </div>
 
                     {/* Mobile hamburger */}
@@ -103,16 +97,6 @@ export function Navbar() {
                                     {s.label}
                                 </a>
                             ))}
-
-                            <div className="pt-2">
-                                <a
-                                    href="#rsvp"
-                                    className="btn btn-lux rounded-pill w-100 py-3"
-                                    onClick={close}
-                                >
-                                    Confirmă prezența
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

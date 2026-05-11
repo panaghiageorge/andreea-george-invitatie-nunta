@@ -2,11 +2,8 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Section } from "./components/Section";
 import { TimelineEditorial } from "./components/TimelineEditorial";
-import { RSVP } from "./components/RSVP";
 import { Details } from "./components/Details";
 import { MessageSection } from "./components/MessageSection.tsx";
-import { Gallery } from "./components/Gallery";
-import { LoveStory } from "./components/LoveStory";
 import { InteractiveMap } from "./components/InteractiveMap";
 import { content } from "./content";
 
@@ -18,24 +15,6 @@ export default function App() {
             <Hero />
 
             <MessageSection />
-
-            <Section
-                id="povestea-noastra"
-                eyebrow="Our Story"
-                title="Povestea noastră"
-                subtitle='De la întâlnire până la "da, vreau!"'
-            >
-                <LoveStory />
-            </Section>
-
-            <Section
-                id="galerie"
-                eyebrow="Memories"
-                title="Galerie"
-                subtitle="Momente frumoase din povestea noastră"
-            >
-                <Gallery />
-            </Section>
 
             <Section
                 id="program"
@@ -53,10 +32,6 @@ export default function App() {
                 subtitle="Alege aplicația preferată pentru navigație."
             >
                 <InteractiveMap />
-            </Section>
-
-            <Section id="rsvp" eyebrow="Attendance" title="Confirmare prezență" subtitle="Un mic răspuns ne ajută mult.">
-                <RSVP />
             </Section>
 
             <Section id="detalii" eyebrow="Info" title="Detalii" subtitle="Contact, informații utile și orice actualizări.">
