@@ -32,7 +32,7 @@
   <!-- eyebrow -->
   <text x="200" y="210" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif"
         font-size="18" letter-spacing="4" fill="#6f675e">
-    SAVE THE DATE
+    VĂ INVITĂM
   </text>
 
   <!-- names -->
@@ -53,6 +53,6 @@
   <!-- subtitle -->
   <text x="200" y="446" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif"
         font-size="22" fill="#6f675e">
-    Invitație &amp; detalii — locații, program, RSVP
+    Invitație &amp; detalii — locații, program
   </text>
 </svg>
