@@ -1,13 +1,13 @@
 export const content = {
-    couple: "Andreea & George",
-    monogram: "AG",
+    couple: "George & Andreea",
+    monogram: "GA",
     dateText: "17 octombrie 2026",
     cityText: "București",
     tagline: "Vă invităm la nunta noastră",
     countdownTargetLocal: "2026-10-17T00:00:00",
     message: {
         title: "Cu bucurie",
-        text: "Cu inimile pline de emoție, vă invităm să ne fiți alături în ziua în care spunem da unei vieți împreună.",
+        text: "Cu inimile pline de emoție, vă invităm să ne fiți alături în ziua în care spunem DA unei vieți împreună.",
     },
     schedule: [
         {
@@ -50,7 +50,7 @@ export const content = {
     notes: [
         {
             title: "Confirmarea prezenței",
-            text: "Ne-ar bucura să ne confirmați prezența din timp, ca să putem pregăti totul cu grijă."
+            text: "Ne-ar bucura să ne confirmați prezența până pe 1 octombrie, pentru a ne ajuta să planificăm o zi perfectă pentru toți.",
         }
     ],
 };

@@ -10,7 +10,7 @@ import { content } from "./content";
 export default function App() {
     return (
         <div className="min-vh-100">
-            <Navbar />
+            {/* <Navbar /> */}
 
             <Hero />
 
@@ -34,9 +34,11 @@ export default function App() {
                 <InteractiveMap />
             </Section>
 
-            <Section id="detalii" eyebrow="Pe scurt" title="Detalii" subtitle="Pentru confirmări sau întrebări, suntem aproape.">
+        
+            <div className="px-3" id="detalii">
                 <Details />
-            </Section>
+            </div>
+            
 
             <footer className="py-4">
                 <div className="container d-flex justify-content-center px-3">
