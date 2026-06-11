@@ -1,4 +1,3 @@
-import { MapPin } from "lucide-react";
 import { content } from "../content";
 import { Countdown } from "./Countdown";
 
