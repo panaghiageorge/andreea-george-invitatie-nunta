@@ -20,8 +20,8 @@
 
   <!-- big monogram watermark -->
   <g opacity="0.10" transform="translate(790,120) rotate(10)">
-    <text x="0" y="0" font-family="Playfair Display, Georgia, serif" font-size="220" fill="url(#gold)" font-weight="600">A</text>
-    <text x="150" y="70" font-family="Playfair Display, Georgia, serif" font-size="220" fill="url(#gold)" font-weight="600">G</text>
+    <text x="0" y="0" font-family="Playfair Display, Georgia, serif" font-size="220" fill="url(#gold)" font-weight="600">G</text>
+    <text x="150" y="70" font-family="Playfair Display, Georgia, serif" font-size="220" fill="url(#gold)" font-weight="600">A</text>
   </g>
 
   <!-- card -->
