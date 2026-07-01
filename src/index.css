@@ -745,10 +745,36 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    html {
+        background: #fffbf5;
+    }
+
     body {
-        background:
-            url("/wedding-hero-texture-mobile.jpg") center top / cover fixed no-repeat,
-            #fffbf5;
+        background: #fffbf5;
+    }
+
+    #root {
+        position: relative;
+        z-index: 0;
+        height: auto;
+        min-height: 100%;
+        isolation: isolate;
+    }
+
+    #root::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-color: #fffbf5;
+        background-image: image-set(
+            url("/wedding-hero-texture-mobile.jpg") 1x,
+            url("/wedding-hero-texture-mobile@2x.jpg") 2x
+        );
+        background-position: center top;
+        background-repeat: repeat-y;
+        background-size: 100% auto;
     }
 
     .lux-envelope-intro {
@@ -1279,7 +1305,6 @@ body::before {
         will-change: transform, opacity;
     }
 
-    body::before,
     .lux-monogram,
     .lux-monogram-2,
     .lux-panel-monogram,

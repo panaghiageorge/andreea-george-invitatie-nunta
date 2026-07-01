@@ -4,9 +4,9 @@ import { content } from "../content";
 
 const MOBILE_QUERY = "(max-width: 768px)";
 const INTRO_VISIBLE_MS = 3300;
-const COVER_OPEN_DURATION_SECONDS = 1.15;
-const COVER_OPEN_DELAY_SECONDS = 0.95;
-const CARD_REVEAL_DELAY_SECONDS = 1.1;
+const COVER_OPEN_DURATION_SECONDS = 1.35;
+const COVER_OPEN_DELAY_SECONDS = 1.15;
+const CARD_REVEAL_DELAY_SECONDS = 1.25;
 const softEase = [0.16, 1, 0.3, 1] as const;
 
 const petals = [
