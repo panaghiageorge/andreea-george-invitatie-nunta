@@ -2,6 +2,46 @@ import { motion } from "framer-motion";
 import { content } from "../content";
 import { Countdown } from "./Countdown";
 
+const heroEase = [0.22, 1, 0.36, 1] as const;
+
+const heroCardVariants = {
+    hidden: { opacity: 0, y: 26, scale: 0.975 },
+    show: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.95,
+            delay: 0.08,
+            ease: heroEase,
+        },
+    },
+};
+
+const heroItemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.75, ease: heroEase },
+    },
+};
+
+const countdownVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.85,
+            delay: 0.9,
+            ease: heroEase,
+            staggerChildren: 0.22,
+            delayChildren: 0.08,
+        },
+    },
+};
+
 export function Hero() {
     const [firstName, secondName = ""] = content.couple.split("&").map((part) => part.trim());
 
@@ -15,16 +55,22 @@ export function Hero() {
 
                     <motion.div
                         className="lux-hero-card"
-                        initial={{ opacity: 0, y: 18, scale: 0.985 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        variants={heroCardVariants}
+                        initial="hidden"
+                        animate="show"
                     >
-                        <div className="lux-hero-crest">{content.monogram ?? "GA"}</div>
+                        <div className="lux-hero-crest">
+                            {content.monogram ?? "GA"}
+                        </div>
 
                         <h1 className="lux-title lux-hero-title">
                             <span className="lux-hero-name">{firstName}</span>
-                            {secondName ? <span className="lux-hero-ampersand">&</span> : null}
-                            {secondName ? <span className="lux-hero-name">{secondName}</span> : null}
+                            {secondName ? (
+                                <span className="lux-hero-ampersand">&</span>
+                            ) : null}
+                            {secondName ? (
+                                <span className="lux-hero-name">{secondName}</span>
+                            ) : null}
                         </h1>
 
                         <div className="lux-hero-date-row">
@@ -42,13 +88,17 @@ export function Hero() {
 
                     <motion.div
                         className="lux-hero-countdown"
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.75, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                        variants={countdownVariants}
+                        initial="hidden"
+                        animate="show"
                     >
-                        <div className="lux-eyebrow text-center mb-2">Numărăm zilele până la eveniment</div>
-                        <div className="lux-sep lux-hero-sep mx-auto" />
-                        <Countdown targetLocalIso={content.countdownTargetLocal} />
+                        <motion.div className="lux-eyebrow text-center mb-2" variants={heroItemVariants}>
+                            Numărăm zilele până la eveniment
+                        </motion.div>
+                        <motion.div className="lux-sep lux-hero-sep mx-auto" variants={heroItemVariants} />
+                        <motion.div variants={heroItemVariants}>
+                            <Countdown targetLocalIso={content.countdownTargetLocal} />
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>

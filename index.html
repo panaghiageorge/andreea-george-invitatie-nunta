@@ -17,9 +17,31 @@
 
 
       <meta name="theme-color" content="#c8aa6a" />
+      <style>
+        html.intro-pending #root {
+          visibility: hidden;
+        }
+
+        html.intro-pending body {
+          background: #f7f0e4;
+        }
+
+        html.intro-pending body::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          z-index: 3000;
+          pointer-events: none;
+          background:
+            radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.76), transparent 34%),
+            linear-gradient(180deg, rgba(255, 251, 246, 0.7), rgba(243, 234, 220, 0.78)),
+            url("/wedding-hero-texture-mobile.jpg?v=20260701-perf1") center / cover no-repeat;
+        }
+      </style>
       <script>
         document.documentElement.classList.add("intro-pending");
       </script>
+      <link rel="preload" as="image" href="/wedding-hero-texture-mobile.jpg?v=20260701-perf1" fetchpriority="high" />
       <link rel="preload" as="image" href="/wedding-bg-paper-mobile.jpg?v=20260701-perf1" media="(max-width: 768px)" fetchpriority="high" />
       <link rel="preload" as="image" href="/wedding-bg-side-left.jpg?v=20260701-perf1" media="(max-width: 768px)" />
       <link rel="preload" as="image" href="/wedding-bg-side-right.jpg?v=20260701-perf1" media="(max-width: 768px)" />
