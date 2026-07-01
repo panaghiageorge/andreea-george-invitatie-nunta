@@ -89,15 +89,17 @@ export function InteractiveMap() {
                                 width: 44px;
                                 height: 44px;
                                 border-radius: 50%;
-                                background: linear-gradient(135deg, #c8aa6a 0%, #b89453 100%);
-                                border: 3px solid white;
+                                background: radial-gradient(circle at 30% 28%, #f8eac4 0%, #c8aa6a 44%, #92703a 100%);
+                                border: 2px solid rgba(255,255,255,0.96);
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                box-shadow: 0 4px 12px rgba(200, 170, 106, 0.4);
+                                box-shadow: 0 12px 28px rgba(90, 63, 34, 0.22);
                                 font-weight: bold;
                                 color: white;
                                 font-size: 18px;
+                                outline: 1px solid rgba(185,150,87,0.38);
+                                outline-offset: 4px;
                             ">
                                 ${index + 1}
                             </div>
@@ -113,7 +115,7 @@ export function InteractiveMap() {
                             <div style="font-family: Inter, sans-serif; padding: 8px;">
                                 <div style="font-weight: 600; margin-bottom: 6px; color: #1f1a14; font-size: 0.95rem;">${location.title}</div>
                                 <div style="font-size: 0.85rem; color: #6f675e; margin-bottom: 4px;">${location.name}</div>
-                                <div style="font-size: 0.8rem; color: #c8aa6a; font-weight: 500; margin-bottom: 10px;">⏰ ${location.time}</div>
+                                <div style="font-size: 0.8rem; color: #97743d; font-weight: 600; margin-bottom: 10px;">Ora ${location.time}</div>
                                 <div style="display:flex; gap:6px; flex-wrap:wrap;">
                                     <a href="${mapsLink}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; font-size:0.75rem; font-weight:600; padding:6px 8px; border-radius:6px; background:linear-gradient(135deg,#c8aa6a 0%,#b89453 100%); color:#fff; border:1px solid rgba(184,148,83,0.45);">Maps</a>
                                     ${wazeLink ? `<a href="${wazeLink}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; font-size:0.75rem; font-weight:600; padding:6px 8px; border-radius:6px; background:rgba(200,170,106,0.14); color:#8d6f38; border:1px solid rgba(200,170,106,0.4);">Waze</a>` : ""}
@@ -199,7 +201,23 @@ export function InteractiveMap() {
     }, []);
 
     return (
-        <div className="lux-interactive-map">
+        <div>
+            <motion.div
+                className="lux-map-intro"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.55 }}
+            >
+                <div className="lux-map-intro-mark">{content.monogram ?? "GA"}</div>
+                <div>
+                    <div className="lux-eyebrow">Adresele evenimentului</div>
+                    <div className="lux-map-intro-text">
+                        Ceremonia și petrecerea sunt pregătite mai jos, cu linkuri directe pentru navigație.
+                    </div>
+                </div>
+            </motion.div>
+
             <div className="row g-3 g-md-4 lux-locations-list">
                 {content.locations.map((location, index) => {
                     const wazeLink = wazeLinkByCoords(location.coords);
@@ -212,9 +230,9 @@ export function InteractiveMap() {
                             initial={{ opacity: 0, y: 18 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                            transition={{ duration: 0.55, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <motion.div className="lux-location-card" whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
+                            <motion.div className="lux-location-card" whileHover={{ y: -3 }} transition={{ duration: 0.3 }}>
                                 <div className="lux-location-heading">
                                     <div className="lux-location-badge">{index + 1}</div>
 
@@ -288,7 +306,7 @@ export function InteractiveMap() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             >
                 <div
                     ref={mapContainer}

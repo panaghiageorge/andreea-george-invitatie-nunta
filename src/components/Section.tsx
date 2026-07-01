@@ -16,11 +16,11 @@ export function Section({
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.25 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                         className="mb-3 mb-md-4"
                     >
                         <div className="lux-eyebrow">{eyebrow}</div>
-                        <h2 className="lux-title fw-semibold mt-2 mb-1" style={{ fontSize: "clamp(1.35rem, 3.8vw, 2rem)" }}>
+                        <h2 className="lux-title lux-section-title fw-semibold mt-2 mb-1">
                             {title}
                         </h2>
                         {subtitle ? <p className="lux-subtle mb-0">{subtitle}</p> : null}

@@ -6,22 +6,13 @@ export function MessageSection() {
     return (
         <section className="lux-message-section">
             <div className="container lux-container text-center">
-                <div className="lux-sep mx-auto mb-4" style={{ maxWidth: 180 }} />
+                <div className="lux-sep lux-message-sep mx-auto mb-4" />
 
-                <p
-                    className="lux-title"
-                    style={{
-                        fontStyle: "italic",
-                        fontSize: "clamp(1.1rem, 2.2vw, 1.35rem)",
-                        lineHeight: 1.7,
-                        maxWidth: 720,
-                        margin: "0 auto",
-                    }}
-                >
+                <p className="lux-title lux-message-text">
                     {content.message.text}
                 </p>
 
-                <div className="lux-sep mx-auto mt-4" style={{ maxWidth: 180 }} />
+                <div className="lux-sep lux-message-sep mx-auto mt-4" />
             </div>
         </section>
     );

@@ -43,7 +43,8 @@ export function Details() {
         <div className="d-flex justify-content-center">
             <div className="w-100" style={{ maxWidth: 820 }}>
                 {/* ONE luxury panel (no empty columns) */}
-                <div className="lux-panel lux-rounded">
+                <div className="lux-panel">
+                    <div className="lux-panel-monogram" aria-hidden="true">{content.monogram ?? "GA"}</div>
                     <div className="lux-panel-header">
                         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2">
                             <div>
@@ -111,7 +112,7 @@ export function Details() {
                                     const Icon = pickIcon(n.title);
                                     return (
                                         <div className={content.notes.length === 1 ? "col-12" : "col-12 col-md-6"} key={n.title}>
-                                            <div className="lux-info-card lux-rounded p-3 p-md-4">
+                                            <div className="lux-info-card p-3 p-md-4">
                                                 {/* icon + number */}
                                                 <div className="d-flex align-items-start gap-3">
                                                     <div

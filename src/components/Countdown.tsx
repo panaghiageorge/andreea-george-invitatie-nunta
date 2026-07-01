@@ -36,7 +36,6 @@ function FlipDigit({ digit }: { digit: string }) {
                     exit={{ y: -16, opacity: 0 }}
                     transition={{ duration: 0.16 }}
                     className="position-absolute top-0 start-0 w-100 text-center lux-countdown-value"
-                    style={{ fontSize: "clamp(22px, 2.2vw, 28px)", lineHeight: "36px", fontVariantNumeric: "tabular-nums" }}
                 >
                     {digit}
                 </motion.div>
@@ -57,7 +56,7 @@ function Digits({ value }: { value: string }) {
 
 function UnitCard({ label, value }: { label: string; value: string }) {
     return (
-        <div className="lux-countdown-card px-3 py-3 text-center">
+        <div className="lux-countdown-card text-center">
             <Digits value={value} />
             <div className="lux-countdown-label mt-2">{label}</div>
         </div>
@@ -83,7 +82,7 @@ export function Countdown({ targetLocalIso }: { targetLocalIso: string }) {
 
     return (
         <div className="d-flex justify-content-center">
-            <div className="lux-countdown lux-rounded px-3 px-md-4 py-3 w-100" style={{ maxWidth: 820 }}>
+            <div className="lux-countdown w-100">
 
                 {/* Mobile: grid (no bullets) */}
                 <div className="lux-countdown-grid d-md-none">
