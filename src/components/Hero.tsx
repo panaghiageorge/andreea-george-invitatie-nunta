@@ -20,7 +20,6 @@ export function Hero() {
                         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <div className="lux-hero-crest">{content.monogram ?? "GA"}</div>
-                        <div className="lux-eyebrow text-center">{content.tagline}</div>
 
                         <h1 className="lux-title lux-hero-title">
                             <span className="lux-hero-name">{firstName}</span>

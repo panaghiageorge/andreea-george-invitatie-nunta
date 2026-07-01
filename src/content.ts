@@ -35,7 +35,7 @@ export const content = {
         {
             title: "Petrecerea",
             name: "Velveto Events • sala V Lounge",
-            address: "Strada Oltețului 30, 014192",
+            address: "Strada Oltețului 30",
             city: "București",
             time: "19:00",
             mapsUrl: "https://maps.app.goo.gl/FtriUu9nJwJ7rbgh8",

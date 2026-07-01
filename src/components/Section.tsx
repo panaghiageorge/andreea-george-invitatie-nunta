@@ -9,7 +9,7 @@ export function Section({
                             children,
                         }: PropsWithChildren<{ id?: string; eyebrow?: string; title: string; subtitle?: string }>) {
     return (
-        <section id={id} className="py-4 py-md-5">
+        <section id={id} className="py-3 py-md-5">
             <div className="container d-flex justify-content-center px-3">
                 <div className="w-100 lux-container">
                     <motion.div
@@ -20,9 +20,11 @@ export function Section({
                         className="mb-3 mb-md-4"
                     >
                         <div className="lux-eyebrow">{eyebrow}</div>
-                        <h2 className="lux-title lux-section-title fw-semibold mt-2 mb-1">
-                            {title}
-                        </h2>
+                        {title && (
+                            <h2 className="lux-title lux-section-title fw-semibold mt-2 mb-1">
+                                {title}
+                            </h2>
+                        )}
                         {subtitle ? <p className="lux-subtle mb-0">{subtitle}</p> : null}
                         <div className="lux-sep mt-3" />
                     </motion.div>

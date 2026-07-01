@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import { content } from "../content";
 
 const MOBILE_QUERY = "(max-width: 768px)";
-const INTRO_VISIBLE_MS = 3800;
+const INTRO_VISIBLE_MS = 3300;
 const COVER_OPEN_DURATION_SECONDS = 1.15;
-const COVER_OPEN_DELAY_SECONDS = 0.42;
-const CARD_REVEAL_DELAY_SECONDS = 0.58;
+const COVER_OPEN_DELAY_SECONDS = 0.95;
+const CARD_REVEAL_DELAY_SECONDS = 1.1;
 const softEase = [0.16, 1, 0.3, 1] as const;
 
 const petals = [
-    { x: -88, y: -96, rotate: -28, delay: 0.95 },
-    { x: 72, y: -118, rotate: 34, delay: 1.08 },
-    { x: -42, y: -146, rotate: 18, delay: 1.2 },
-    { x: 104, y: -72, rotate: -18, delay: 1.34 },
-    { x: -106, y: -54, rotate: 38, delay: 1.48 },
+    { x: -88, y: -96, rotate: -28, delay: 1.15 },
+    { x: 72, y: -118, rotate: 34, delay: 1.18 },
+    { x: -42, y: -146, rotate: 18, delay: 1.3 },
+    { x: 104, y: -72, rotate: -18, delay: 1.44 },
+    { x: -106, y: -54, rotate: 38, delay: 1.58 },
 ];
 
 export function MobileWeddingRevealIntro() {
@@ -87,7 +87,6 @@ export function MobileWeddingRevealIntro() {
                             animate={prefersReducedMotion ? { opacity: 0, y: -520 } : { opacity: [1, 0.62, 0], y: [0, -320, -520], scale: [1, 0.95, 0.88], rotateX: [0, 12, 18] }}
                             transition={{ delay: COVER_OPEN_DELAY_SECONDS, duration: COVER_OPEN_DURATION_SECONDS, times: [0, 0.72, 1], ease: softEase }}
                         >
-                            <div className="lux-opening-cover-botanical" />
                             <div className="lux-opening-cover-mark">GA</div>
                         </motion.div>
 

@@ -175,11 +175,11 @@ body::before {
 
 .lux-hero-ampersand {
     color: #92703a;
-    font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
     font-size: clamp(2.2rem, 6vw, 4.2rem);
     font-style: italic;
     font-weight: 500;
-    line-height: 0.85;
+    line-height: 1.5;
 }
 
 .lux-hero-date-row {
@@ -294,14 +294,14 @@ body::before {
     backdrop-filter: blur(8px);
 }
 
-.lux-panel::before {
+/* .lux-panel::before {
     content: "";
     position: absolute;
     inset: 10px;
     pointer-events: none;
     border: 1px solid rgba(185, 150, 87, 0.16);
     border-radius: 6px;
-}
+} */
 
 .lux-panel-monogram {
     position: absolute;
@@ -563,6 +563,7 @@ body::before {
     color: var(--lux-muted);
     font-size: 0.88rem;
     line-height: 1.45;
+    font-style: italic;
 }
 
 .lux-location-address svg {
@@ -1207,7 +1208,7 @@ body::before {
         z-index: 1;
         margin-top: 20px;
         color: #211915;
-        font-family: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+        font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
         font-size: 1.3rem;
         font-weight: 600;
         line-height: 1.1;

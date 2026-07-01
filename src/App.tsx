@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Hero } from "./components/Hero";
 import { Section } from "./components/Section";
-// import { TimelineEditorial } from "./components/TimelineEditorial";
 import { Details } from "./components/Details";
 import { MessageSection } from "./components/MessageSection.tsx";
 import { InteractiveMap } from "./components/InteractiveMap";
@@ -16,19 +15,10 @@ export default function App() {
 
             <MessageSection />
 
-            {/* <Section
-                id="program"
-                eyebrow="Ziua nunții"
-                title="Program"
-                subtitle="Vă așteptăm cu drag la ceremonia religioasă și apoi la petrecere."
-            >
-                <TimelineEditorial />
-            </Section> */}
-
             <Section
                 id="program"
-                eyebrow="Ziua nunții"
-                title="Program și locații"
+                eyebrow=""
+                title=""
                 subtitle="Vă așteptăm cu drag la ceremonia religioasă și apoi la petrecere."
             >
                 <InteractiveMap />

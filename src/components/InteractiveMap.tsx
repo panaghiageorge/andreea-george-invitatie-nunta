@@ -202,22 +202,6 @@ export function InteractiveMap() {
 
     return (
         <div>
-            <motion.div
-                className="lux-map-intro"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.55 }}
-            >
-                <div className="lux-map-intro-mark">{content.monogram ?? "GA"}</div>
-                <div>
-                    <div className="lux-eyebrow">Adresele evenimentului</div>
-                    <div className="lux-map-intro-text">
-                        Ceremonia și petrecerea sunt pregătite mai jos, cu linkuri directe pentru navigație.
-                    </div>
-                </div>
-            </motion.div>
-
             <div className="row g-3 g-md-4 lux-locations-list">
                 {content.locations.map((location, index) => {
                     const wazeLink = wazeLinkByCoords(location.coords);

@@ -54,7 +54,7 @@ export function Details() {
                             </div>
 
                             <div className="lux-subtle small">
-                                Pentru orice întrebare, ne puteți scrie oricând.
+                                Pentru orice întrebare nu ezitați să ne contactați.
                             </div>
                         </div>
 
@@ -141,7 +141,7 @@ export function Details() {
                             </div>
 
                             <div className="lux-subtle small mt-3">
-                                Dacă apar modificări, vom actualiza aici informațiile.
+                                Dacă apar modificări, vom actualiza informațiile.
                             </div>
                         </div>
                     </div>
