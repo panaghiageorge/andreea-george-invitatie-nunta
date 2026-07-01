@@ -759,6 +759,7 @@ body::before {
         height: auto;
         min-height: 100%;
         isolation: isolate;
+        overflow: hidden;
     }
 
     #root::before {
@@ -767,14 +768,33 @@ body::before {
         inset: 0;
         z-index: -1;
         pointer-events: none;
-        background-color: #fffbf5;
-        background-image: image-set(
-            url("/wedding-hero-texture-mobile.jpg") 1x,
-            url("/wedding-hero-texture-mobile@2x.jpg") 2x
-        );
-        background-position: center top;
-        background-repeat: repeat-y;
-        background-size: 100% auto;
+        background:
+            linear-gradient(180deg, rgba(255, 251, 246, 0.22), rgba(250, 244, 235, 0.3)),
+            url("/wedding-bg-paper-mobile.jpg") center top / 100% auto repeat-y,
+            #fbf6ed;
+    }
+
+    #root::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+            url("/wedding-bg-side-left.jpg"),
+            url("/wedding-bg-side-right.jpg");
+        background-position:
+            left top,
+            right top;
+        background-repeat:
+            repeat-y,
+            repeat-y;
+        background-size:
+            clamp(150px, 42vw, 230px) auto,
+            clamp(150px, 42vw, 230px) auto;
+        opacity: 0.88;
+        -webkit-mask-image: linear-gradient(90deg, #000 0, #000 24vw, transparent 48vw, transparent calc(100% - 48vw), #000 calc(100% - 24vw), #000 100%);
+        mask-image: linear-gradient(90deg, #000 0, #000 24vw, transparent 48vw, transparent calc(100% - 48vw), #000 calc(100% - 24vw), #000 100%);
     }
 
     .lux-envelope-intro {
