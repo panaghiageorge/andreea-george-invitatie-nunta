@@ -9,26 +9,26 @@ import { content } from "./content";
 
 export default function App() {
     return (
-        <div className="min-vh-100">
+        <div>
             <MobileWeddingRevealIntro />
-            <Hero />
+            <main className="min-vh-100">
+                <Hero />
 
-            <MessageSection />
+                <MessageSection />
 
-            <Section
-                id="program"
-                eyebrow=""
-                title=""
-                subtitle="Vă așteptăm cu drag la ceremonia religioasă și apoi la petrecere."
-            >
-                <InteractiveMap />
-            </Section>
+                <Section
+                    id="program"
+                    eyebrow=""
+                    title=""
+                    subtitle="Vă așteptăm cu drag la ceremonia religioasă și apoi la petrecere."
+                >
+                    <InteractiveMap />
+                </Section>
 
-        
-            <div className="px-3" id="detalii">
-                <Details />
-            </div>
-            
+                <div className="px-3" id="detalii">
+                    <Details />
+                </div>
+            </main>
 
             <footer className="lux-footer py-4 py-md-5">
                 <div className="container d-flex justify-content-center px-3">

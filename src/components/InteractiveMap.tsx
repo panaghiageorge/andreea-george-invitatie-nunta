@@ -250,7 +250,7 @@ export function InteractiveMap() {
                                             <Clock size={14} />
                                             {location.time}
                                         </div>
-                                        <h4 className="lux-location-title">{location.title}</h4>
+                                        <h3 className="lux-location-title">{location.title}</h3>
                                     </div>
                                 </div>
 
@@ -321,6 +321,7 @@ export function InteractiveMap() {
                 <div
                     ref={mapContainer}
                     className="lux-map-container"
+                    role="img"
                     aria-label="Hartă cu locațiile evenimentului"
                 />
             </motion.div>

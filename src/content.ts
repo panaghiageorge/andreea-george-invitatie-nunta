@@ -7,7 +7,7 @@ export const content = {
     countdownTargetLocal: "2026-10-17T00:00:00",
     message: {
         title: "Cu bucurie",
-        text: "Cu inimile pline de emoție, vă invităm să ne fiți alături în ziua în care spunem DA unei vieți împreună.",
+        text: "Cu inimile pline de emoție, vă invităm să ne fiți alături într-una dintre cele mai speciale zile din viața noastră.",
     },
     schedule: [
         {

@@ -1,27 +1,45 @@
 import { useEffect, useMemo, useState } from "react";
-import { DateTime } from "luxon";
 import { AnimatePresence, motion } from "framer-motion";
 
 type Parts = { months: number; days: number; hours: number };
-const ZONE = "Europe/Bucharest";
+const HOUR_MS = 60 * 60 * 1000;
+const DAY_MS = 24 * HOUR_MS;
 
 function clampNonNegative(n: number) {
     return Math.max(0, Math.floor(n));
 }
-function computeParts(targetLocalIso: string): Parts {
-    const now = DateTime.now().setZone(ZONE);
-    const target = DateTime.fromISO(targetLocalIso, { zone: ZONE });
 
-    if (!target.isValid || target <= now) {
+function addMonths(date: Date, months: number) {
+    const next = new Date(date);
+    const originalDay = next.getDate();
+
+    next.setMonth(next.getMonth() + months, 1);
+    const daysInTargetMonth = new Date(next.getFullYear(), next.getMonth() + 1, 0).getDate();
+    next.setDate(Math.min(originalDay, daysInTargetMonth));
+
+    return next;
+}
+
+function computeParts(targetLocalIso: string): Parts {
+    const now = new Date();
+    const target = new Date(`${targetLocalIso}+03:00`);
+
+    if (Number.isNaN(target.getTime()) || target <= now) {
         return { months: 0, days: 0, hours: 0 };
     }
 
-    const diff = target.diff(now, ["months", "days", "hours"]).toObject();
+    let months = (target.getFullYear() - now.getFullYear()) * 12 + target.getMonth() - now.getMonth();
+    if (addMonths(now, months) > target) {
+        months -= 1;
+    }
+
+    const afterMonths = addMonths(now, Math.max(0, months));
+    const remainingMs = Math.max(0, target.getTime() - afterMonths.getTime());
 
     return {
-        months: clampNonNegative(diff.months ?? 0),
-        days: clampNonNegative(diff.days ?? 0),
-        hours: clampNonNegative(diff.hours ?? 0),
+        months: clampNonNegative(months),
+        days: clampNonNegative(remainingMs / DAY_MS),
+        hours: clampNonNegative((remainingMs % DAY_MS) / HOUR_MS),
     };
 }
 
