@@ -1237,12 +1237,12 @@ body::before {
     .lux-opening-cover {
         z-index: 5;
         background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(247, 238, 222, 0.68)),
-            radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.66), transparent 38%);
+            linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(247, 238, 222, 0.24)),
+            url("/wedding-opening-cover-bg.jpg") center / cover no-repeat;
         box-shadow:
             0 20px 54px rgba(54, 41, 24, 0.12),
             inset 0 0 0 1px rgba(255, 255, 255, 0.68);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(2px);
         transform-origin: top center;
         will-change: transform, opacity;
     }
@@ -1251,12 +1251,14 @@ body::before {
         position: absolute;
         top: 50%;
         left: 50%;
-        color: rgba(255, 255, 255, 0.82);
+        color: rgba(255, 255, 255, 0.88);
         font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
         font-size: 5.8rem;
         font-weight: 700;
         line-height: 0.9;
-        text-shadow: 0 10px 30px rgba(54, 41, 24, 0.12);
+        text-shadow:
+            0 2px 12px rgba(84, 62, 34, 0.18),
+            0 12px 34px rgba(54, 41, 24, 0.18);
         transform: translate(-50%, -50%);
     }
 
