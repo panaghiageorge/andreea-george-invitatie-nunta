@@ -7,24 +7,20 @@
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
 */
 
+/
+  Cache-Control: no-store, max-age=0, must-revalidate
 
 /index.html
-  Cache-Control: no-store, max-age=0
+  Cache-Control: no-store, max-age=0, must-revalidate
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/*.css
-  Cache-Control: public, max-age=31536000, immutable
+/wedding-*
+  Cache-Control: public, max-age=0, must-revalidate
 
-/*.js
-  Cache-Control: public, max-age=31536000, immutable
+/og-image.png
+  Cache-Control: public, max-age=0, must-revalidate
 
-/*.svg
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.png
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.jpg
-  Cache-Control: public, max-age=31536000, immutable
+/favicon.svg
+  Cache-Control: public, max-age=3600

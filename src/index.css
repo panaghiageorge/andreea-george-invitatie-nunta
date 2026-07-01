@@ -770,7 +770,7 @@ body::before {
         pointer-events: none;
         background:
             linear-gradient(180deg, rgba(255, 251, 246, 0.22), rgba(250, 244, 235, 0.3)),
-            url("/wedding-bg-paper-mobile.jpg") center top / 100% auto repeat-y,
+            url("/wedding-bg-paper-mobile.jpg?v=20260701-perf1") center top / 100% auto repeat-y,
             #fbf6ed;
     }
 
@@ -781,8 +781,8 @@ body::before {
         z-index: -1;
         pointer-events: none;
         background-image:
-            url("/wedding-bg-side-left.jpg"),
-            url("/wedding-bg-side-right.jpg");
+            url("/wedding-bg-side-left.jpg?v=20260701-perf1"),
+            url("/wedding-bg-side-right.jpg?v=20260701-perf1");
         background-position:
             left top,
             right top;
@@ -808,7 +808,7 @@ body::before {
         background:
             radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.7), transparent 34%),
             linear-gradient(180deg, rgba(255, 251, 246, 0.98), rgba(243, 234, 220, 0.98)),
-            url("/wedding-hero-texture-mobile.jpg") center / cover no-repeat;
+            url("/wedding-hero-texture-mobile.jpg?v=20260701-perf1") center / cover no-repeat;
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -999,7 +999,7 @@ body::before {
         background:
             radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.76), transparent 34%),
             linear-gradient(180deg, rgba(255, 251, 246, 0.7), rgba(243, 234, 220, 0.78)),
-            url("/wedding-hero-texture-mobile.jpg") center / cover no-repeat;
+            url("/wedding-hero-texture-mobile.jpg?v=20260701-perf1") center / cover no-repeat;
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -1284,7 +1284,7 @@ body::before {
         z-index: 5;
         background:
             linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(247, 238, 222, 0.24)),
-            url("/wedding-opening-cover-bg.jpg") center / cover no-repeat;
+            url("/wedding-opening-cover-bg.jpg?v=20260701-perf1") center / cover no-repeat;
         box-shadow:
             0 20px 54px rgba(54, 41, 24, 0.12),
             inset 0 0 0 1px rgba(255, 255, 255, 0.68);

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Apple, Clock, ExternalLink, MapPin, Navigation, ParkingSquare } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { content } from "../content";
 
 function buildAppleMapsLink(address: string, city: string) {
@@ -42,11 +42,36 @@ function wazeLinkByCoords(coords?: Coords) {
 }
 
 export function InteractiveMap() {
+    const mapWrapper = useRef<HTMLDivElement>(null);
     const mapContainer = useRef<HTMLDivElement>(null);
     const mapInstance = useRef<LeafletMap | null>(null);
+    const [shouldInitMap, setShouldInitMap] = useState(false);
 
     useEffect(() => {
-        if (!mapContainer.current) return;
+        const target = mapWrapper.current;
+        if (!target) return;
+
+        if (!("IntersectionObserver" in window)) {
+            setShouldInitMap(true);
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry?.isIntersecting) return;
+                setShouldInitMap(true);
+                observer.disconnect();
+            },
+            { rootMargin: "360px 0px" }
+        );
+
+        observer.observe(target);
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!shouldInitMap || !mapContainer.current) return;
 
         // Initialize map with Leaflet (via CDN fallback)
         const initMap = () => {
@@ -198,7 +223,7 @@ export function InteractiveMap() {
                 mapInstance.current = null;
             }
         };
-    }, []);
+    }, [shouldInitMap]);
 
     return (
         <div>
@@ -286,6 +311,7 @@ export function InteractiveMap() {
 
             {/* Map Container */}
             <motion.div
+                ref={mapWrapper}
                 className="lux-map-wrapper"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
