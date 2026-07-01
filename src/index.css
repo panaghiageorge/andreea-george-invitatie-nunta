@@ -455,8 +455,190 @@ body {
     transform: rotate(-10deg);
 }
 
+html.intro-pending #root {
+    visibility: hidden;
+}
+
+html.intro-pending body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.76), transparent 34%),
+        linear-gradient(180deg, rgba(255, 251, 246, 0.7), rgba(243, 234, 220, 0.78)),
+        url("/wedding-hero-texture-mobile.jpg?v=20260701-perf1") center / cover no-repeat;
+}
+
 .lux-reveal-intro {
-    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 24px;
+    background:
+        radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.76), transparent 34%),
+        linear-gradient(180deg, rgba(255, 251, 246, 0.7), rgba(243, 234, 220, 0.78)),
+        url("/wedding-hero-texture-mobile.jpg?v=20260701-perf1") center / cover no-repeat;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lux-reveal-petal {
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 18px;
+    border-radius: 999px 999px 999px 2px;
+    background: linear-gradient(180deg, rgba(183, 127, 120, 0.72), rgba(255, 224, 216, 0.56));
+    box-shadow: 0 6px 14px rgba(183, 127, 120, 0.16);
+    pointer-events: none;
+}
+
+.lux-opening-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(76vw, 300px);
+    height: 440px;
+    isolation: isolate;
+    perspective: 900px;
+}
+
+.lux-opening-card,
+.lux-opening-cover {
+    position: absolute;
+    width: min(100%, 286px);
+    height: 408px;
+    border: 1px solid rgba(185, 150, 87, 0.28);
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.lux-opening-card {
+    z-index: 2;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    padding: 34px 18px 30px;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 242, 0.96)),
+        radial-gradient(circle at 50% 18%, rgba(185, 150, 87, 0.12), transparent 38%);
+    box-shadow:
+        0 28px 70px rgba(54, 41, 24, 0.17),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.lux-opening-card::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    pointer-events: none;
+    border: 1px solid rgba(185, 150, 87, 0.16);
+    border-radius: 13px;
+}
+
+.lux-opening-botanical {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.48;
+    background:
+        radial-gradient(ellipse at 24% 18%, rgba(183, 127, 120, 0.24) 0 5%, transparent 5.8%),
+        radial-gradient(ellipse at 31% 15%, rgba(185, 150, 87, 0.18) 0 4.5%, transparent 5.2%),
+        radial-gradient(ellipse at 18% 28%, rgba(111, 125, 110, 0.16) 0 5%, transparent 5.8%),
+        linear-gradient(116deg, transparent 0 24%, rgba(111, 125, 110, 0.22) 24.4%, transparent 25% 100%);
+}
+
+.lux-opening-rings {
+    position: relative;
+    width: 66px;
+    height: 44px;
+    margin-bottom: 18px;
+}
+
+.lux-opening-rings span {
+    position: absolute;
+    bottom: 0;
+    width: 38px;
+    height: 38px;
+    border: 2px solid rgba(185, 150, 87, 0.68);
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px rgba(255, 249, 223, 0.44);
+}
+
+.lux-opening-rings span:first-child {
+    left: 5px;
+    transform: rotate(-12deg);
+}
+
+.lux-opening-rings span:last-child {
+    right: 5px;
+    transform: rotate(12deg);
+}
+
+.lux-opening-couple {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    color: #211915;
+    font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.lux-opening-line {
+    position: relative;
+    z-index: 1;
+    width: 122px;
+    height: 1px;
+    margin: 15px auto 12px;
+    background: linear-gradient(90deg, transparent, rgba(185, 150, 87, 0.65), transparent);
+}
+
+.lux-opening-date {
+    position: relative;
+    z-index: 1;
+    color: #7f612f;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.lux-opening-cover {
+    z-index: 5;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(247, 238, 222, 0.24)),
+        url("/wedding-opening-cover-bg.jpg?v=20260701-perf1") center / cover no-repeat;
+    box-shadow:
+        0 20px 54px rgba(54, 41, 24, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(2px);
+    transform-origin: top center;
+    will-change: transform, opacity;
+}
+
+.lux-opening-cover-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-size: 5.8rem;
+    font-weight: 700;
+    line-height: 0.9;
+    text-shadow:
+        0 2px 12px rgba(84, 62, 34, 0.18),
+        0 12px 34px rgba(54, 41, 24, 0.18);
+    transform: translate(-50%, -50%);
 }
 
 .lux-message-section {
@@ -954,177 +1136,6 @@ body {
         -webkit-mask-image: linear-gradient(90deg, #000 0, #000 24vw, transparent 48vw, transparent calc(100% - 48vw), #000 calc(100% - 24vw), #000 100%);
         mask-image: linear-gradient(90deg, #000 0, #000 24vw, transparent 48vw, transparent calc(100% - 48vw), #000 calc(100% - 24vw), #000 100%);
     }
-
-    .lux-reveal-intro {
-        position: fixed;
-        inset: 0;
-        z-index: 3000;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        padding: 24px;
-        background:
-            radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.76), transparent 34%),
-            linear-gradient(180deg, rgba(255, 251, 246, 0.7), rgba(243, 234, 220, 0.78)),
-            url("/wedding-hero-texture-mobile.jpg?v=20260701-perf1") center / cover no-repeat;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .lux-reveal-petal {
-        position: absolute;
-        z-index: 6;
-        top: 50%;
-        left: 50%;
-        width: 10px;
-        height: 18px;
-        border-radius: 999px 999px 999px 2px;
-        background: linear-gradient(180deg, rgba(183, 127, 120, 0.72), rgba(255, 224, 216, 0.56));
-        box-shadow: 0 6px 14px rgba(183, 127, 120, 0.16);
-        pointer-events: none;
-    }
-
-    .lux-opening-stage {
-        position: relative;
-        display: grid;
-        place-items: center;
-        width: min(76vw, 300px);
-        height: 440px;
-        isolation: isolate;
-        perspective: 900px;
-    }
-
-    .lux-opening-card,
-    .lux-opening-cover {
-        position: absolute;
-        width: min(100%, 286px);
-        height: 408px;
-        border: 1px solid rgba(185, 150, 87, 0.28);
-        border-radius: 18px;
-        overflow: hidden;
-        text-align: center;
-    }
-
-    .lux-opening-card {
-        z-index: 2;
-        display: grid;
-        align-content: center;
-        justify-items: center;
-        padding: 34px 18px 30px;
-        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 242, 0.96)),
-            radial-gradient(circle at 50% 18%, rgba(185, 150, 87, 0.12), transparent 38%);
-        box-shadow:
-            0 28px 70px rgba(54, 41, 24, 0.17),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.72);
-    }
-
-    .lux-opening-card::before {
-        content: "";
-        position: absolute;
-        inset: 12px;
-        pointer-events: none;
-        border: 1px solid rgba(185, 150, 87, 0.16);
-        border-radius: 13px;
-    }
-
-    .lux-opening-botanical {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.48;
-        background:
-            radial-gradient(ellipse at 24% 18%, rgba(183, 127, 120, 0.24) 0 5%, transparent 5.8%),
-            radial-gradient(ellipse at 31% 15%, rgba(185, 150, 87, 0.18) 0 4.5%, transparent 5.2%),
-            radial-gradient(ellipse at 18% 28%, rgba(111, 125, 110, 0.16) 0 5%, transparent 5.8%),
-            linear-gradient(116deg, transparent 0 24%, rgba(111, 125, 110, 0.22) 24.4%, transparent 25% 100%);
-    }
-
-    .lux-opening-rings {
-        position: relative;
-        width: 66px;
-        height: 44px;
-        margin-bottom: 18px;
-    }
-
-    .lux-opening-rings span {
-        position: absolute;
-        bottom: 0;
-        width: 38px;
-        height: 38px;
-        border: 2px solid rgba(185, 150, 87, 0.68);
-        border-radius: 999px;
-        box-shadow: inset 0 0 0 1px rgba(255, 249, 223, 0.44);
-    }
-
-    .lux-opening-rings span:first-child {
-        left: 5px;
-        transform: rotate(-12deg);
-    }
-
-    .lux-opening-rings span:last-child {
-        right: 5px;
-        transform: rotate(12deg);
-    }
-
-    .lux-opening-couple {
-        position: relative;
-        z-index: 1;
-        margin-top: 20px;
-        color: #211915;
-        font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
-        font-size: 1.3rem;
-        font-weight: 600;
-        line-height: 1.1;
-    }
-
-    .lux-opening-line {
-        position: relative;
-        z-index: 1;
-        width: 122px;
-        height: 1px;
-        margin: 15px auto 12px;
-        background: linear-gradient(90deg, transparent, rgba(185, 150, 87, 0.65), transparent);
-    }
-
-    .lux-opening-date {
-        position: relative;
-        z-index: 1;
-        color: #7f612f;
-        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-        font-size: 0.82rem;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-
-    .lux-opening-cover {
-        z-index: 5;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(247, 238, 222, 0.24)),
-            url("/wedding-opening-cover-bg.jpg?v=20260701-perf1") center / cover no-repeat;
-        box-shadow:
-            0 20px 54px rgba(54, 41, 24, 0.12),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.68);
-        backdrop-filter: blur(2px);
-        transform-origin: top center;
-        will-change: transform, opacity;
-    }
-
-    .lux-opening-cover-mark {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        color: rgba(255, 255, 255, 0.88);
-        font-family: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", Times, serif;
-        font-size: 5.8rem;
-        font-weight: 700;
-        line-height: 0.9;
-        text-shadow:
-            0 2px 12px rgba(84, 62, 34, 0.18),
-            0 12px 34px rgba(54, 41, 24, 0.18);
-        transform: translate(-50%, -50%);
-    }
-
     .lux-monogram,
     .lux-monogram-2,
     .lux-panel-monogram,
