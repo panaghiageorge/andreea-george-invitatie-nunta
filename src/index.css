@@ -295,7 +295,7 @@ body {
 
 .lux-date-display {
     font-weight: 600;
-    font-size: clamp(1.28rem, 3.4vw, 2rem);
+    font-size: 23px;
 }
 
 .lux-sep,

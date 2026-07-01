@@ -47,12 +47,6 @@ export function Details() {
                     <div className="lux-panel-monogram" aria-hidden="true">{content.monogram ?? "GA"}</div>
                     <div className="lux-panel-header">
                         <div className="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                            <div>
-                                <div className="lux-title fw-semibold mt-2" style={{ fontSize: "1.25rem" }}>
-                                    Detalii pentru invitați
-                                </div>
-                            </div>
-
                             <div className="lux-subtle small">
                                 Pentru orice întrebare nu ezitați să ne contactați.
                             </div>
@@ -63,8 +57,7 @@ export function Details() {
 
                     <div className="lux-panel-body">
                         {/* CONTACT STRIP */}
-                        <div className="mb-4">
-                            <div className="lux-eyebrow mb-2">Contact</div>
+                        <div className="mb-3">
 
                             <div className="row g-3">
                                 {content.contacts.map((c) => (
@@ -105,8 +98,6 @@ export function Details() {
 
                         {/* USEFUL INFO GRID */}
                         <div>
-                            <div className="lux-eyebrow mb-2">Confirmare</div>
-
                             <div className="row g-3">
                                 {content.notes.map((n) => {
                                     const Icon = pickIcon(n.title);
